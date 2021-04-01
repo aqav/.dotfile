@@ -1,8 +1,8 @@
 alias ll='ls -al --color=auto'
 
-export PS1='\u@\h \[\e[32m\]$(collapsed_pwd)\[\e[0m\]\$ '
+export PS1='\u@\h \[\e[32m\]$(_collapsed_pwd)\[\e[0m\]\$ '
 
-function collapsed_pwd() {
+function _collapsed_pwd() {
     local pwd="$1"
     local home="$HOME"
     local size=${#home}
@@ -39,3 +39,5 @@ function collapsed_pwd() {
     local IFS="/"
     echo "${elements[*]}"
 }
+
+. ~/.config/z.sh
