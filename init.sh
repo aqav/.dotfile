@@ -1,3 +1,8 @@
+case "$-" in
+    *i*) ;;
+    *) return
+esac
+
 alias ll='ls -al --color=auto'
 
 export PS1='\u@\h \[\e[32m\]$(_collapsed_pwd)\[\e[0m\]\$ '
