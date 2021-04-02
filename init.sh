@@ -1,11 +1,10 @@
-case "$-" in
-    *i*) ;;
-    *) return
-esac
+[[ "$-" != *i* ]] && return
 
-alias ll='ls -al --color=auto'
-
-export PS1='\u@\h \[\e[32m\]$(_collapsed_pwd)\[\e[0m\]\$ '
+eval "$(lua ~/.config/z.lua  --init bash)"
+export _ZL_ECHO=1
+export _ZL_ADD_ONCE=1
+export _ZL_MATCH_MODE=1
+export _ZL_HYPHEN=1
 
 function _collapsed_pwd() {
     local pwd="$1"
@@ -44,5 +43,7 @@ function _collapsed_pwd() {
     local IFS="/"
     echo "${elements[*]}"
 }
+export PS1='\u@\h \[\e[32m\]$(_collapsed_pwd)\[\e[0m\]\$ '
 
-. ~/.config/z.sh
+alias ls='ls --color=auto'
+alias ll='ls -al --color=auto'
