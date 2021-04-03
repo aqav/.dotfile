@@ -1,5 +1,3 @@
-" Put 'source path/to/.vimrc' to your .vimrc
-
 if $TMUX != ''
     set ttimeoutlen=20
 elseif &ttimeoutlen > 60 || &ttimeoutlen <= 0
