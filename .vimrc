@@ -1,4 +1,4 @@
-# Put 'source path/to/.vimrc' to your .vimrc
+" Put 'source path/to/.vimrc' to your .vimrc
 
 if $TMUX != ''
     set ttimeoutlen=20
