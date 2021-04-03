@@ -43,7 +43,7 @@ function _collapsed_pwd() {
     local IFS="/"
     echo "${elements[*]}"
 }
-export PS1='\u@\h \[\e[32m\]$(_collapsed_pwd)\[\e[0m\]\$ '
+export PS1='\[\e[35m\]\u@\h \[\e[32m\]$(_collapsed_pwd)\[\e[35m\]\$ \[\e[0m\]'
 
 alias ls='ls --color=auto'
 alias ll='ls -al --color=auto'
