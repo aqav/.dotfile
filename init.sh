@@ -1,3 +1,5 @@
+# Put 'source path/to/init.sh' into .bashrc 
+
 [[ "$-" != *i* ]] && return
 
 eval "$(lua ~/.config/z.lua  --init bash)"
