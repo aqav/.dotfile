@@ -7,7 +7,7 @@ elseif &ttimeoutlen > 60 || &ttimeoutlen <= 0
     set ttimeoutlen=60
 endif 
 
-# no bell
+" no bell
 set visualbell
 
 " number
