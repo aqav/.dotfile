@@ -45,5 +45,7 @@ function _collapsed_pwd() {
 }
 export PS1='\[\e[35m\]\u@\h \[\e[32m\]$(_collapsed_pwd)\[\e[35m\]\$ \[\e[0m\]'
 
+export BAT_THEME="ansi"
+
 alias ls='ls --color=auto'
 alias ll='ls -al --color=auto'
