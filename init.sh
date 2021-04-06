@@ -1,11 +1,14 @@
+# If not running interactively, don't do anything 
 [[ "$-" != *i* ]] && return
 
+# z.lua
 eval "$(lua ~/.config/z.lua  --init bash)"
 export _ZL_ECHO=1
 export _ZL_ADD_ONCE=1
 export _ZL_MATCH_MODE=1
 export _ZL_HYPHEN=1
 
+# prompt
 function _collapsed_pwd() {
     local pwd="$1"
     local home="$HOME"
@@ -45,7 +48,9 @@ function _collapsed_pwd() {
 }
 export PS1='\[\e[35m\]\u@\h \[\e[32m\]$(_collapsed_pwd)\[\e[35m\]\$ \[\e[0m\]'
 
+# bat
 export BAT_THEME="ansi"
 
+# alias
 alias ls='ls --color=auto'
 alias ll='ls -al --color=auto'

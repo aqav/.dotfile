@@ -1,3 +1,6 @@
+# no bell
 set bell-style none
+
+# tab completion
 set completion-ignore-case on
 set show-all-if-ambiguous on
