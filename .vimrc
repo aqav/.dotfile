@@ -3,6 +3,7 @@ set bs=eol,start,indent
 set autoindent
 set ruler
 set nowrap
+set scrolloff=8
 set visualbell
 
 set number
