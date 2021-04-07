@@ -3,6 +3,7 @@ set bs=eol,start,indent
 set autoindent
 set ruler
 set nowrap
+set visualbell
 
 set number
 set relativenumber
@@ -12,6 +13,7 @@ set matchtime=2
 set display=lastline
 set wildmenu
 set lazyredraw
+set list
 set listchars=tab:\|\ ,trail:.,extends:>,precedes:<
 set formatoptions+=m
 set formatoptions+=B
@@ -28,7 +30,7 @@ if $TMUX != ''
     set ttimeoutlen=30
 elseif &ttimeoutlen > 80 || &ttimeoutlen <= 0
     set ttimeoutlen=80
-endif 
+endif
 
 if has('multi_byte')
     set encoding=utf-8
@@ -40,9 +42,9 @@ if has('autocmd')
     filetype plugin indent on
 endif
 
-if has('syntax')  
-    syntax enable 
-    syntax on 
+if has('syntax')
+    syntax enable
+    syntax on
 endif
 
 if has('folding')
@@ -72,3 +74,34 @@ set wildignore+=*.linux2,*.win32,*.darwin,*.freebsd,*.linux,*.android
 if &term =~ '256color' && $TMUX != ''
     set t_ut=
 endif
+
+" silent! call mkdir(expand('~/.cache/vim/backup'), "p", 0755)
+" silent! call mkdir(expand('~/.cache/vim/swap'), "p", 0755)
+" silent! call mkdir(expand('~/.cache/vim/undo'), "p", 0755)
+" set backupdir=~/.cache/vim/backup
+" set directory=~/.cache/vim/swap
+" set undodir=~/.cache/vim/undo
+set nobackup
+set nowritebackup
+set noswapfile
+set noundofile
+
+autocmd BufReadPost *
+        \ if line("'\"") > 1 && line("'\"") <= line("$") |
+        \        exe "normal! g`\"" |
+        \ endif
+
+noremap <C-h> <left>
+noremap <C-j> <down>
+noremap <C-k> <up>
+noremap <C-l> <right>
+
+inoremap <C-h> <left>
+inoremap <C-j> <down>
+inoremap <C-k> <up>
+inoremap <C-l> <right>
+
+cnoremap <c-h> <left>
+cnoremap <c-j> <down>
+cnoremap <c-k> <up>
+cnoremap <c-l> <right>
