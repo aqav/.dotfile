@@ -2,7 +2,7 @@
 [[ "$-" != *i* ]] && return
 
 # z.lua
-eval "$(lua ~/.config/z.lua  --init bash)"
+eval "$(lua ~/.dotfile/z.lua  --init bash)"
 export _ZL_ECHO=1
 export _ZL_ADD_ONCE=1
 export _ZL_MATCH_MODE=1

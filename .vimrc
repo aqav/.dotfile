@@ -1,5 +1,5 @@
 set nocompatible
-set bs=eol,start,indent
+set backspace=eol,start,indent
 set autoindent
 set ruler
 set nowrap
@@ -35,8 +35,9 @@ set tabstop=4
 set expandtab
 set softtabstop=4
 
-" set laststatus=2
+set laststatus=2
 " set showtabline=2
+set t_Co=256
 
 set ttimeout
 set ttimeoutlen=50
@@ -120,3 +121,5 @@ inoremap <c-d> <del>
 cnoremap <c-a> <home>
 cnoremap <c-e> <end>
 cnoremap <c-d> <del>
+
+colorscheme pablo
