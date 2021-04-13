@@ -25,6 +25,16 @@ set smartcase
 set hlsearch
 set incsearch
 
+set showcmd
+set showmode
+set splitright
+
+set cindent
+set shiftwidth=4
+set tabstop=4
+set expandtab
+set softtabstop=4
+
 set ttimeout
 set ttimeoutlen=50
 if $TMUX != ''
@@ -92,17 +102,18 @@ autocmd BufReadPost *
         \        exe "normal! g`\"" |
         \ endif
 
-noremap <C-h> <left>
-noremap <C-j> <down>
-noremap <C-k> <up>
-noremap <C-l> <right>
-
 inoremap <C-h> <left>
 inoremap <C-j> <down>
 inoremap <C-k> <up>
 inoremap <C-l> <right>
-
 cnoremap <c-h> <left>
 cnoremap <c-j> <down>
 cnoremap <c-k> <up>
 cnoremap <c-l> <right>
+
+inoremap <c-a> <home>
+inoremap <c-e> <end>
+inoremap <c-d> <del>
+cnoremap <c-a> <home>
+cnoremap <c-e> <end>
+cnoremap <c-d> <del>
