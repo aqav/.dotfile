@@ -35,6 +35,9 @@ set tabstop=4
 set expandtab
 set softtabstop=4
 
+" set laststatus=2
+" set showtabline=2
+
 set ttimeout
 set ttimeoutlen=50
 if $TMUX != ''
