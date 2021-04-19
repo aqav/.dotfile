@@ -46,6 +46,7 @@ function _collapsed_pwd() {
     local IFS="/"
     echo "${elements[*]}"
 }
+
 export PS1='\[\e[35m\]\u@\h \[\e[32m\]$(_collapsed_pwd)\[\e[35m\]\$ \[\e[0m\]'
 
 # bat
