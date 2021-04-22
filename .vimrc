@@ -121,5 +121,3 @@ inoremap <c-d> <del>
 cnoremap <c-a> <home>
 cnoremap <c-e> <end>
 cnoremap <c-d> <del>
-
-colorscheme pablo
