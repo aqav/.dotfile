@@ -18,7 +18,7 @@ set list
 set listchars=tab:\|\ ,trail:.,extends:>,precedes:<
 set formatoptions+=m
 set formatoptions+=B
-set ffs=unix,dos,mac
+set fileformats=unix,dos,mac
 
 set ignorecase
 set smartcase
