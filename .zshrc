@@ -1,17 +1,33 @@
-# Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
-setopt autocd beep extendedglob nomatch notify
+
+setopt autocd
+setopt notify
+setopt prompt_subst
+unsetopt nomatch
+unsetopt beep
+
 bindkey -e
-# End of lines configured by zsh-newuser-install
-# The following lines were added by compinstall
+
 zstyle :compinstall filename '/home/y/.zshrc'
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f ~/.dotfile/.sh ] && source ~/.dotfile/.sh
+
+source ~/.zinit/bin/zinit.zsh
+autoload -Uz _zinit
+(( ${+_comps} )) && _comps[zinit]=_zinit
+
+zinit load zsh-users/zsh-autosuggestions
+zinit load zsh-users/zsh-syntax-highlighting
 
 autoload -Uz compinit
 compinit
-# End of lines added by compinstall
+zstyle ':completion:*' menu select
 
-setopt PROMPT_SUBST
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-[ -f ~/.dotfile/.sh ] && source ~/.dotfile/.sh
+zstyle ':completion:*' special-dirs true
+_comp_options+=(globdots)
+
+eval "$(dircolors)"
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}

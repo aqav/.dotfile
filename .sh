@@ -1,20 +1,16 @@
-# If not running interactively, don't do anything 
 [[ "$-" != *i* ]] && return
 
-# z.lua - https://github.com/skywind3000/z.lua
 eval "$(lua ~/.dotfile/lib/z.lua  --init bash)"
 export _ZL_ECHO=1
 export _ZL_ADD_ONCE=1
 export _ZL_MATCH_MODE=1
 export _ZL_HYPHEN=1
 
-# prompt
 if [ -n "$BASH_VERSION" ]; then
     export PS1='\[\e[1;35m\]\u@\h \[\e[1;32m\]$(_collapsed_pwd)\[\e[1;35m\]\$ \[\e[0m\]'
 else
     export PROMPT='%F{5}%B%n@%m%b%f %F{2}%B$(_collapsed_pwd)%b%f%F{5}%B$%b%f '
 fi
-
 function _collapsed_pwd() {
     local pwd="$1"
     local home="$HOME"
@@ -53,16 +49,12 @@ function _collapsed_pwd() {
     echo "${elements[*]}"
 }
 
-# bat - https://github.com/sharkdp/bat
 export BAT_THEME="ansi"
 
-# common
 alias ls='ls --color=auto'
 alias ll='ls -Alh --color=auto'
 alias cls='clear'
 
-# fzf - https://github.com/junegunn/fzf
 alias fzf='fzf -m'
-
 export FZF_DEFAULT_OPTS='--layout=reverse --info=inline'
 export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
