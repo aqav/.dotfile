@@ -90,12 +90,12 @@ if &term =~ '256color' && $TMUX != ''
     set t_ut=
 endif
 
-" silent! call mkdir(expand('~/.cache/vim/backup'), "p", 0755)
-" silent! call mkdir(expand('~/.cache/vim/swap'), "p", 0755)
-" silent! call mkdir(expand('~/.cache/vim/undo'), "p", 0755)
-" set backupdir=~/.cache/vim/backup
-" set directory=~/.cache/vim/swap
-" set undodir=~/.cache/vim/undo
+silent! call mkdir(expand('~/.vim/backup'), "p", 0755)
+silent! call mkdir(expand('~/.vim/swap'), "p", 0755)
+silent! call mkdir(expand('~/.vim/undo'), "p", 0755)
+set backupdir=~/.vim/backup
+set directory=~/.vim/swap
+set undodir=~/.vim/undo
 set backup
 set writebackup
 set swapfile
