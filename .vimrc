@@ -96,10 +96,10 @@ endif
 " set backupdir=~/.cache/vim/backup
 " set directory=~/.cache/vim/swap
 " set undodir=~/.cache/vim/undo
-set nobackup
-set nowritebackup
-set noswapfile
-set noundofile
+set backup
+set writebackup
+set swapfile
+set undofile
 
 autocmd BufReadPost *
         \ if line("'\"") > 1 && line("'\"") <= line("$") |

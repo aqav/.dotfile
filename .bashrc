@@ -55,6 +55,7 @@ export BAT_THEME="ansi"
 # common
 alias ls='ls --color=auto'
 alias ll='ls -Alh --color=auto'
+alias cls='clear'
 
 # fzf - https://github.com/junegunn/fzf
 alias fzf='fzf -m'
