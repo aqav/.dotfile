@@ -121,3 +121,11 @@ inoremap <c-d> <del>
 cnoremap <c-a> <home>
 cnoremap <c-e> <end>
 cnoremap <c-d> <del>
+
+call plug#begin('~/.vim/plugged')
+Plug 'vim-airline/vim-airline'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+call plug#end()
+
+let g:fzf_preview_window = ['right:50%:border-none']

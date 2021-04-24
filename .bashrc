@@ -1,14 +1,16 @@
 # If not running interactively, don't do anything 
 [[ "$-" != *i* ]] && return
 
-# z.lua
-eval "$(lua ~/.dotfile/z.lua  --init bash)"
+# z.lua - https://github.com/skywind3000/z.lua
+eval "$(lua ~/.dotfile/lib/z.lua  --init bash)"
 export _ZL_ECHO=1
 export _ZL_ADD_ONCE=1
 export _ZL_MATCH_MODE=1
 export _ZL_HYPHEN=1
 
 # prompt
+export PS1='\[\e[35m\]\u@\h \[\e[32m\]$(_collapsed_pwd)\[\e[35m\]\$ \[\e[0m\]'
+
 function _collapsed_pwd() {
     local pwd="$1"
     local home="$HOME"
@@ -47,11 +49,15 @@ function _collapsed_pwd() {
     echo "${elements[*]}"
 }
 
-export PS1='\[\e[35m\]\u@\h \[\e[32m\]$(_collapsed_pwd)\[\e[35m\]\$ \[\e[0m\]'
-
-# bat
+# bat - https://github.com/sharkdp/bat
 export BAT_THEME="ansi"
 
-# alias
+# common
 alias ls='ls --color=auto'
-alias ll='ls -al --color=auto'
+alias ll='ls -Alh --color=auto'
+
+# fzf - https://github.com/junegunn/fzf
+alias fzf='fzf -m'
+
+export FZF_DEFAULT_OPTS='--layout=reverse --info=inline'
+
