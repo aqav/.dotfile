@@ -60,4 +60,4 @@ alias ll='ls -Alh --color=auto'
 alias fzf='fzf -m'
 
 export FZF_DEFAULT_OPTS='--layout=reverse --info=inline'
-
+export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
