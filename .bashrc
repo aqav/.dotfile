@@ -9,7 +9,7 @@ export _ZL_MATCH_MODE=1
 export _ZL_HYPHEN=1
 
 # prompt
-export PS1='\[\e[35m\]\u@\h \[\e[32m\]$(_collapsed_pwd)\[\e[35m\]\$ \[\e[0m\]'
+export PS1='\[\e[1;35m\]\u@\h \[\e[1;32m\]$(_collapsed_pwd)\[\e[1;35m\]\$ \[\e[0m\]'
 
 function _collapsed_pwd() {
     local pwd="$1"
