@@ -12,6 +12,5 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 
-
-# export PROMPT='%F{5}%B%n@%m%b%f %F{2}%B%~%b%f%F{5}%B$%b%f '
+setopt PROMPT_SUBST
 source ~/.dotfile/.sh

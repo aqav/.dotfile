@@ -9,6 +9,11 @@ export _ZL_MATCH_MODE=1
 export _ZL_HYPHEN=1
 
 # prompt
+if [ -n "$BASH_VERSION" ]; then
+    export PS1='\[\e[1;35m\]\u@\h \[\e[1;32m\]$(_collapsed_pwd)\[\e[1;35m\]\$ \[\e[0m\]'
+else
+    export PROMPT='%F{5}%B%n@%m%b%f %F{2}%B$(_collapsed_pwd)%b%f%F{5}%B$%b%f '
+fi
 
 function _collapsed_pwd() {
     local pwd="$1"
@@ -47,13 +52,6 @@ function _collapsed_pwd() {
     local IFS="/"
     echo "${elements[*]}"
 }
-
-if [ -n "$BASH_VERSION" ]; then
-    export PS1='\[\e[1;35m\]\u@\h \[\e[1;32m\]$(_collapsed_pwd)\[\e[1;35m\]\$ \[\e[0m\]'
-else
-    export PROMPT='%F{5}%B%n@%m%b%f %F{2}%B$(_collapsed_pwd)%b%f%F{5}%B$%b%f '
-fi
-# export PROMPT='%F{5}%B%n@%m%b%f %F{2}%B%~%b%f%F{5}%B$%b%f '
 
 # bat - https://github.com/sharkdp/bat
 export BAT_THEME="ansi"
