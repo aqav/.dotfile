@@ -13,4 +13,5 @@ compinit
 # End of lines added by compinstall
 
 setopt PROMPT_SUBST
-source ~/.dotfile/.sh
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f ~/.dotfile/.sh ] && source ~/.dotfile/.sh
