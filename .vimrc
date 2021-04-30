@@ -5,6 +5,7 @@ set ruler
 set nowrap
 set scrolloff=8
 set visualbell
+set t_vb=
 
 set number
 set relativenumber
