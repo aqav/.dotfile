@@ -130,12 +130,35 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'vim-airline/vim-airline-themes'
 
-Plug 'yuttie/hydrangea-vim'
+" Plug 'yuttie/hydrangea-vim'
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
+" Plug 'agude/vim-eldar'
+" Plug 'liuchengxu/space-vim-theme'
+" Plug 'shaunsingh/moonlight.nvim'
+" Plug 'chriskempson/base16-vim'
+Plug 'kenwheeler/glow-in-the-dark-gucci-shark-bites-vim'
+Plug 'dracula/vim', { 'name': 'dracula' }
+Plug 'bignimbus/pop-punk.vim'
+Plug 'ryanoasis/vim-devicons'
 call plug#end()
 
 let g:fzf_preview_window = ['right:50%:border-none']
 
 let g:airline#extensions#tabline#enabled = 1
-let g:airline_theme='murmur'
+" let g:airline_theme='murmur'
 
-colorscheme hydrangea
+" colorscheme eldar
+"
+" colorscheme dracula
+
+colorscheme pop-punk
+
+" pop-punk ANSI colors for vim terminal
+let g:terminal_ansi_colors = pop_punk#AnsiColors()
+
+" for the airline theme - note the underscore instead of the hyphen
+let g:airline_theme = 'pop_punk'
+
+" just for fun
+let g:airline_section_c = '🎸 %F'
