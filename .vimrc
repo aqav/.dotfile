@@ -38,6 +38,7 @@ set softtabstop=4
 
 set laststatus=2
 " set showtabline=2
+set signcolumn=yes
 set t_Co=256
 
 set ttimeout
@@ -127,8 +128,14 @@ call plug#begin('~/.vim/plugged')
 Plug 'vim-airline/vim-airline'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'vim-airline/vim-airline-themes'
+
+Plug 'yuttie/hydrangea-vim'
 call plug#end()
 
 let g:fzf_preview_window = ['right:50%:border-none']
 
 let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme='murmur'
+
+colorscheme hydrangea
