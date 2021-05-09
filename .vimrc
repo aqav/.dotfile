@@ -130,3 +130,5 @@ Plug 'junegunn/fzf.vim'
 call plug#end()
 
 let g:fzf_preview_window = ['right:50%:border-none']
+
+let g:airline#extensions#tabline#enabled = 1
