@@ -1,6 +1,7 @@
 call plug#begin('~/.vim/plugged')
 
 Plug 'morhetz/gruvbox'
+let g:gruvbox_invert_selection=0
 
 Plug 'vim-airline/vim-airline'
 let g:airline#extensions#tabline#enabled = 1
@@ -13,7 +14,8 @@ let g:coc_global_extensions = [
             \ 'coc-git',
             \ 'coc-java', 
             \ 'coc-pairs',
-            \ 'coc-snippets'
+            \ 'coc-snippets',
+            \ 'coc-yank'
             \ ]
 
 inoremap <silent><expr> <TAB>
@@ -32,6 +34,8 @@ inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
 
 let g:coc_snippet_next = '<tab>'
 let g:coc_snippet_prev = '<S-Tab>'
+
+nnoremap <silent> <space>y  :<C-u>CocList -A --normal yank<cr>
 
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
