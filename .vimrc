@@ -133,14 +133,16 @@ Plug 'vim-airline/vim-airline-themes'
 " Plug 'yuttie/hydrangea-vim'
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
-" Plug 'agude/vim-eldar'
+ Plug 'agude/vim-eldar'
 " Plug 'liuchengxu/space-vim-theme'
 " Plug 'shaunsingh/moonlight.nvim'
 " Plug 'chriskempson/base16-vim'
 Plug 'kenwheeler/glow-in-the-dark-gucci-shark-bites-vim'
 Plug 'dracula/vim', { 'name': 'dracula' }
 Plug 'bignimbus/pop-punk.vim'
-Plug 'ryanoasis/vim-devicons'
+" Plug 'ryanoasis/vim-devicons'
+Plug 'NLKNguyen/papercolor-theme'
+Plug 'morhetz/gruvbox'
 call plug#end()
 
 let g:fzf_preview_window = ['right:50%:border-none']
@@ -152,13 +154,20 @@ let g:airline#extensions#tabline#enabled = 1
 "
 " colorscheme dracula
 
-colorscheme pop-punk
+" colorscheme pop-punk
+" colorscheme molokai
+" colorscheme PaperColor
+colorscheme gruvbox
+set background=dark
 
 " pop-punk ANSI colors for vim terminal
 let g:terminal_ansi_colors = pop_punk#AnsiColors()
 
 " for the airline theme - note the underscore instead of the hyphen
-let g:airline_theme = 'pop_punk'
+" let g:airline_theme = 'pop_punk'
+" let g:airline_theme = 'molokai'
+" let g:airline_theme='papercolor'
+let g:airline_theme='gruvbox'
 
 " just for fun
-let g:airline_section_c = '🎸 %F'
+let g:airline_section_c = ' %F'
