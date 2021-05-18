@@ -44,7 +44,12 @@ nmap <silent> gr <Plug>(coc-references)
 nmap <silent> <C-s> <Plug>(coc-range-select)
 xmap <silent> <C-s> <Plug>(coc-range-select)
 
+Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
+let g:Lf_WindowPosition = 'popup'
+let g:Lf_PreviewInPopup = 1
+let g:Lf_PopupPreviewPosition = 'bottom'
 
+let g:Lf_ShowDevIcons = 0
 call plug#end()
 
 set nocompatible
