@@ -55,6 +55,9 @@ alias ls='ls --color=auto'
 alias ll='ls -Alh --color=auto'
 alias cls='clear'
 
+alias vi='nvim'
+alias vim='nvim'
+
 alias fzf='fzf -m'
 export FZF_DEFAULT_OPTS='--layout=reverse --info=inline'
 export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'

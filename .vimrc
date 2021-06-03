@@ -1,96 +1,118 @@
+call plug#begin('~/.vim/plugged')
+
+Plug 'vim-airline/vim-airline'
+let g:airline#extensions#tabline#enabled = 1
+
+Plug 'vim-airline/vim-airline-themes'
+let g:airline_theme = 'molokai'
+
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+let g:coc_global_extensions = [
+            \ 'coc-git',
+            \ 'coc-java'
+            \ ]
+
+set shortmess+=c
+
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+set updatetime=300
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+nmap <silent> <C-s> <Plug>(coc-range-select)
+xmap <silent> <C-s> <Plug>(coc-range-select)
+
+call plug#end()
+
 set nocompatible
-set backspace=eol,start,indent
-set autoindent
-set ruler
 set nowrap
+set hidden
+set lazyredraw
 set scrolloff=8
+set backspace=indent,start,eol
+set fileformats=unix,dos,mac
+
 set visualbell
 set t_vb=
 
+set t_Co=256
+syntax enable
+colorscheme molokai
+set background=dark
+
 set number
 set relativenumber
+set signcolumn=yes
 
-set showmatch
-set matchtime=2
-set display=lastline
+set ruler
 set wildmenu
-set lazyredraw
+set showcmd
+set showmode
+set showmatch
+set matchtime=1
+set cursorline
+set display=lastline
+set showtabline=2
+set laststatus=2
 set list
 set listchars=tab:\|\ ,trail:.,extends:>,precedes:<
-set formatoptions+=m
-set formatoptions+=B
-set fileformats=unix,dos,mac
+
+set splitright
+set splitbelow
 
 set ignorecase
 set smartcase
 set hlsearch
 set incsearch
 
-set showcmd
-set showmode
-set splitright
-
 set cindent
+set autoindent
 set shiftwidth=4
 set tabstop=4
 set expandtab
 set softtabstop=4
-
-set laststatus=2
-" set showtabline=2
-set signcolumn=yes
-set t_Co=256
+filetype plugin indent on
 
 set ttimeout
-set ttimeoutlen=50
 if $TMUX != ''
     set ttimeoutlen=30
-elseif &ttimeoutlen > 80 || &ttimeoutlen <= 0
-    set ttimeoutlen=80
+else
+    set ttimeoutlen=50
 endif
 
-if has('multi_byte')
-    set encoding=utf-8
-    set fileencoding=utf-8
-    set fileencodings=ucs-bom,utf-8,gbk,gb18030,big5,euc-jp,latin1
-endif
+set encoding=utf-8
+set fileencoding=utf-8
+set fileencodings=ucs-bom,utf-8,gbk,gb18030,big5,euc-jp,latin1
 
-if has('autocmd')
-    filetype plugin indent on
-endif
+set foldenable
+set foldmethod=indent
+set foldlevel=99
+set foldcolumn=0
 
-if has('syntax')
-    syntax enable
-    syntax on
-endif
-
-if has('folding')
-    set foldenable
-    set fdm=indent
-    set foldlevel=99
-endif
-
-set suffixes=.bak,~,.o,.h,.info,.swp,.obj,.pyc,.pyo,.egg-info,.class
-set wildignore=*.o,*.obj,*~,*.exe,*.a,*.pdb,*.lib
-set wildignore+=*.so,*.dll,*.swp,*.egg,*.jar,*.class,*.pyc,*.pyo,*.bin,*.dex
-set wildignore+=*.zip,*.7z,*.rar,*.gz,*.tar,*.gzip,*.bz2,*.tgz,*.xz
-set wildignore+=*DS_Store*,*.ipch
-set wildignore+=*.gem
-set wildignore+=*.png,*.jpg,*.gif,*.bmp,*.tga,*.pcx,*.ppm,*.img,*.iso
-set wildignore+=*.so,*.swp,*.zip,*/.Trash/**,*.pdf,*.dmg,*/.rbenv/**
-set wildignore+=*/.nx/**,*.app,*.git,.git
-set wildignore+=*.wav,*.mp3,*.ogg,*.pcm
-set wildignore+=*.mht,*.suo,*.sdf,*.jnlp
-set wildignore+=*.chm,*.epub,*.pdf,*.mobi,*.ttf
-set wildignore+=*.mp4,*.avi,*.flv,*.mov,*.mkv,*.swf,*.swc
-set wildignore+=*.ppt,*.pptx,*.docx,*.xlt,*.xls,*.xlsx,*.odt,*.wps
-set wildignore+=*.msi,*.crx,*.deb,*.vfd,*.apk,*.ipa,*.bin,*.msu
-set wildignore+=*.gba,*.sfc,*.078,*.nds,*.smd,*.smc
-set wildignore+=*.linux2,*.win32,*.darwin,*.freebsd,*.linux,*.android
-
-if &term =~ '256color' && $TMUX != ''
-    set t_ut=
-endif
+autocmd BufReadPost *
+        \ if line("'\"") > 1 && line("'\"") <= line("$") |
+        \        exe "normal! g`\"" |
+        \ endif
 
 silent! call mkdir(expand('~/.vim/temp/backup'), "p", 0755)
 silent! call mkdir(expand('~/.vim/temp/swap'), "p", 0755)
@@ -102,11 +124,6 @@ set backup
 set writebackup
 set swapfile
 set undofile
-
-autocmd BufReadPost *
-        \ if line("'\"") > 1 && line("'\"") <= line("$") |
-        \        exe "normal! g`\"" |
-        \ endif
 
 inoremap <C-h> <left>
 inoremap <C-j> <down>
@@ -123,51 +140,3 @@ inoremap <c-d> <del>
 cnoremap <c-a> <home>
 cnoremap <c-e> <end>
 cnoremap <c-d> <del>
-
-call plug#begin('~/.vim/plugged')
-Plug 'vim-airline/vim-airline'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
-Plug 'vim-airline/vim-airline-themes'
-
-" Plug 'yuttie/hydrangea-vim'
-" Plug 'neoclide/coc.nvim', {'branch': 'release'}
-" Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
- Plug 'agude/vim-eldar'
-" Plug 'liuchengxu/space-vim-theme'
-" Plug 'shaunsingh/moonlight.nvim'
-" Plug 'chriskempson/base16-vim'
-Plug 'kenwheeler/glow-in-the-dark-gucci-shark-bites-vim'
-Plug 'dracula/vim', { 'name': 'dracula' }
-Plug 'bignimbus/pop-punk.vim'
-" Plug 'ryanoasis/vim-devicons'
-Plug 'NLKNguyen/papercolor-theme'
-Plug 'morhetz/gruvbox'
-call plug#end()
-
-let g:fzf_preview_window = ['right:50%:border-none']
-
-let g:airline#extensions#tabline#enabled = 1
-" let g:airline_theme='murmur'
-
-" colorscheme eldar
-"
-" colorscheme dracula
-
-" colorscheme pop-punk
-" colorscheme molokai
-" colorscheme PaperColor
-colorscheme gruvbox
-set background=dark
-
-" pop-punk ANSI colors for vim terminal
-let g:terminal_ansi_colors = pop_punk#AnsiColors()
-
-" for the airline theme - note the underscore instead of the hyphen
-" let g:airline_theme = 'pop_punk'
-" let g:airline_theme = 'molokai'
-" let g:airline_theme='papercolor'
-let g:airline_theme='gruvbox'
-
-" just for fun
-let g:airline_section_c = ' %F'
