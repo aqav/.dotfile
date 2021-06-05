@@ -1,32 +1,37 @@
 call plug#begin('~/.vim/plugged')
 
+Plug 'morhetz/gruvbox'
+
 Plug 'vim-airline/vim-airline'
 let g:airline#extensions#tabline#enabled = 1
 
 Plug 'vim-airline/vim-airline-themes'
-let g:airline_theme = 'molokai'
+let g:airline_theme = 'gruvbox'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 let g:coc_global_extensions = [
             \ 'coc-git',
-            \ 'coc-java'
+            \ 'coc-java', 
+            \ 'coc-pairs',
+            \ 'coc-snippets'
             \ ]
 
-set shortmess+=c
-
 inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
+      \ pumvisible() ? coc#_select_confirm() :
+      \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
       \ <SID>check_back_space() ? "\<TAB>" :
       \ coc#refresh()
+
 function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
                               \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+let g:coc_snippet_next = '<tab>'
+let g:coc_snippet_prev = '<S-Tab>'
 
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
@@ -36,11 +41,9 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
-set updatetime=300
-autocmd CursorHold * silent call CocActionAsync('highlight')
-
 nmap <silent> <C-s> <Plug>(coc-range-select)
 xmap <silent> <C-s> <Plug>(coc-range-select)
+
 
 call plug#end()
 
@@ -57,7 +60,7 @@ set t_vb=
 
 set t_Co=256
 syntax enable
-colorscheme molokai
+colorscheme gruvbox
 set background=dark
 
 set number
