@@ -73,6 +73,7 @@ set t_Co=256
 syntax enable
 colorscheme gruvbox
 set background=dark
+set termguicolors
 set guifont=SauceCodePro\ NF:h14
 
 set number
