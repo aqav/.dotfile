@@ -17,6 +17,8 @@ let g:coc_global_extensions = [
             \ 'coc-snippets',
             \ 'coc-yank'
             \ ]
+            
+set tags=./tags;
 
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? coc#_select_confirm() :
@@ -71,6 +73,7 @@ set t_Co=256
 syntax enable
 colorscheme gruvbox
 set background=dark
+set guifont=SauceCodePro\ NF:h14
 
 set number
 set relativenumber
