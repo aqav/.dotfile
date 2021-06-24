@@ -56,6 +56,15 @@ let g:Lf_PreviewInPopup = 1
 let g:Lf_PopupPreviewPosition = 'bottom'
 
 let g:Lf_ShowDevIcons = 0
+
+Plug 'ludovicchabant/vim-gutentags'
+let g:gutentags_ctags_tagfile = '.tags'
+
+let g:gutentags_project_root = ['.root', '.svn', '.git', '.project']
+
+let s:vim_tags = expand('~/.vim/temp/tags')
+silent! call mkdir(s:vim_tags, "p", 0755)
+let g:gutentags_cache_dir = s:vim_tags
 call plug#end()
 
 set nocompatible
