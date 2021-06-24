@@ -83,7 +83,7 @@ set signcolumn=yes
 set ruler
 set wildmenu
 set showcmd
-set showmode
+set noshowmode
 set showmatch
 set matchtime=1
 set cursorline
