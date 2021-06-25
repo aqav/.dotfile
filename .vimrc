@@ -15,10 +15,9 @@ let g:coc_global_extensions = [
             \ 'coc-java', 
             \ 'coc-pairs',
             \ 'coc-snippets',
-            \ 'coc-yank'
+            \ 'coc-yank',
+            \ 'coc-highlight'
             \ ]
-            
-set tags=./tags;
 
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? coc#_select_confirm() :
@@ -39,6 +38,9 @@ let g:coc_snippet_prev = '<S-Tab>'
 
 nnoremap <silent> <space>y  :<C-u>CocList -A --normal yank<cr>
 
+" set updatetime=300
+" autocmd CursorHold * silent call CocActionAsync('highlight')
+
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
@@ -54,17 +56,19 @@ Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
 let g:Lf_WindowPosition = 'popup'
 let g:Lf_PreviewInPopup = 1
 let g:Lf_PopupPreviewPosition = 'bottom'
-
 let g:Lf_ShowDevIcons = 0
 
-Plug 'ludovicchabant/vim-gutentags'
-let g:gutentags_ctags_tagfile = '.tags'
+let g:Lf_ShortcutF = '<C-P>'
 
+" set tags=./.tags;,.tags
+Plug 'ludovicchabant/vim-gutentags'
 let g:gutentags_project_root = ['.root', '.svn', '.git', '.project', '.idea']
 
 let s:vim_tags = expand('~/.vim/temp/tags')
 silent! call mkdir(s:vim_tags, "p", 0755)
 let g:gutentags_cache_dir = s:vim_tags
+
+let g:gutentags_ctags_tagfile = '.tags'
 call plug#end()
 
 set nocompatible
@@ -83,7 +87,7 @@ syntax enable
 colorscheme gruvbox
 set background=dark
 set termguicolors
-set guifont=SauceCodePro\ NF:h14
+set guifont=SauceCodePro\ NF:h14 
 
 set number
 set relativenumber
