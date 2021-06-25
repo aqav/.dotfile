@@ -60,7 +60,7 @@ let g:Lf_ShowDevIcons = 0
 Plug 'ludovicchabant/vim-gutentags'
 let g:gutentags_ctags_tagfile = '.tags'
 
-let g:gutentags_project_root = ['.root', '.svn', '.git', '.project']
+let g:gutentags_project_root = ['.root', '.svn', '.git', '.project', '.idea']
 
 let s:vim_tags = expand('~/.vim/temp/tags')
 silent! call mkdir(s:vim_tags, "p", 0755)
