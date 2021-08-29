@@ -6,7 +6,7 @@ call plug#begin(stdpath('data') . '/plugged')
 " distinguishable, contrast colorscheme and still pleasant for the eyes
 Plug 'morhetz/gruvbox'
 " more constrast in dark mode
-let g:gruvbox_contrast_dark = 'hard'
+" let g:gruvbox_contrast_dark = 'hard'
 
 " lean & mean status/tabline for vim that's light as air
 Plug 'vim-airline/vim-airline'
@@ -88,6 +88,9 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 let g:coc_global_extensions = [
             \ 'coc-java',
             \ 'coc-snippets']
+
+Plug 'airblade/vim-rooter'
+let rooter_patterns = ['.git']
 
 call plug#end()
 
