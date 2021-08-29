@@ -5,19 +5,17 @@ call plug#begin(stdpath('data') . '/plugged')
 
 " distinguishable, contrast colorscheme and still pleasant for the eyes
 Plug 'morhetz/gruvbox'
-" more constrast in dark mode
-" let g:gruvbox_contrast_dark = 'hard'
+" let g:gruvbox_contrast_dark = 'hard'    " more constrast in dark mode
 
 " lean & mean status/tabline for vim that's light as air
 Plug 'vim-airline/vim-airline'
-" display tabs or buffers when there're only one tab
-let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#enabled = 1    " display all buffers when there're only one tab
 
 " efficient fuzzy finder that helps to locate something
 "
 " require python2 or python3 command available in path:
 " # sudo pacman -S python3
-".
+"
 " for NeoVim:
 " # sudo pacman -S python-pip
 " # python3 -m pip install --user --upgrade pynvim
@@ -25,14 +23,34 @@ let g:airline#extensions#tabline#enabled = 1
 " for better performance:
 " :LeaderfInstallCExtension
  Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
-" I don't like these icons
-let g:Lf_ShowDevIcons = 0
-" specify the position of the window
-let g:Lf_WindowPosition = 'popup'
-" specify whether to preview the result in a popup window
-let g:Lf_PreviewInPopup = 1
-" specify where to locate the preview window when in popup mode
-let g:Lf_PopupPreviewPosition = 'bottom'
+ " common
+" I don't like these separators
+let g:Lf_StlSeparator ={
+            \'left': '', 
+            \'right': '' }
+let g:Lf_ShowDevIcons = 0                       " I don't like these icons
+let g:Lf_PreviewInPopup = 1                     " always preview the result in a popup window rather than buffer
+let g:Lf_PreviewCode = 1                        " preview the code rather than tag file when navigating the tags
+let g:Lf_ShowHidden = 1                         " search hidden files and directories
+let g:Lf_FollowLinks = 1                        " search symlinks files and directories
+let g:Lf_UseCache = 0                           " don't cache the list for real-time refresh
+let g:Lf_UseMemoryCache = 0                     " don't use the memory to cache the indexing result for real-time refresh
+" prevent the default value for don't open any 
+" preview window automatically for performance
+let g:Lf_PreviewResult = {
+            \'BufTag': 0, 
+            \'Function': 0}
+let g:Lf_UseVersionControlTool = 0              " always use better(e.g: ripgrep) tool to index the files rather than version control one
+
+" unpopup mode
+" comment the options under popup mode to active
+" let g:Lf_StlColorscheme = 'gruvbox_material'    " specify the colorscheme of statusline
+
+" popup mode
+" comment the options under unpopup mode to active
+let g:Lf_WindowPosition = 'popup'               " specify the position of the window
+let g:Lf_PopupPreviewPosition = 'bottom'        " specify where to locate the preview window when in popup mode
+let g:Lf_StlColorscheme = 'gruvbox_default'     " specify the colorscheme of statusline
 
 " intellisense engine for Vim 8 & NeoVim
 "
@@ -80,7 +98,7 @@ endfunction
 " highlight the symbol and its references when hovering
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
-" coc extension need to install
+" coc extensions need to install
 "
 " coc-java
 " requre: at least Java 11
@@ -89,8 +107,9 @@ let g:coc_global_extensions = [
             \ 'coc-java',
             \ 'coc-snippets']
 
+" tool for change the directory to the project root
 Plug 'airblade/vim-rooter'
-let rooter_patterns = ['.git']
+let rooter_patterns = ['.git']    " specify the root has a certain file or directory
 
 call plug#end()
 
