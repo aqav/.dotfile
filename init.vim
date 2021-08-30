@@ -27,7 +27,8 @@ let g:airline#extensions#tabline#enabled = 1    " display all buffers when there
 " I don't like these separators
 let g:Lf_StlSeparator ={
             \'left': '', 
-            \'right': '' }
+            \'right': ''
+            \}
 let g:Lf_ShowDevIcons = 0                       " I don't like these icons
 let g:Lf_PreviewInPopup = 1                     " always preview the result in a popup window rather than buffer
 let g:Lf_PreviewCode = 1                        " preview the code rather than tag file when navigating the tags
@@ -41,16 +42,21 @@ let g:Lf_PreviewResult = {
             \'BufTag': 0, 
             \'Function': 0}
 let g:Lf_UseVersionControlTool = 0              " always use better(e.g: ripgrep) tool to index the files rather than version control one
+" include hidden files and symbolic links into ripgrep
+let g:Lf_RgConfig = [
+        \ "--hidden",
+        \ "--follow"
+        \]
 
 " unpopup mode
 " comment the options under popup mode to active
-let g:Lf_StlColorscheme = 'gruvbox_material'    " specify the colorscheme of statusline
+" let g:Lf_StlColorscheme = 'gruvbox_material'    " specify the colorscheme of statusline
 
 " popup mode
 " comment the options under unpopup mode to active
-" let g:Lf_WindowPosition = 'popup'               " specify the position of the window
-" let g:Lf_PopupPreviewPosition = 'bottom'        " specify where to locate the preview window when in popup mode
-" let g:Lf_StlColorscheme = 'gruvbox_default'     " specify the colorscheme of statusline
+let g:Lf_WindowPosition = 'popup'               " specify the position of the window
+let g:Lf_PopupPreviewPosition = 'bottom'        " specify where to locate the preview window when in popup mode
+let g:Lf_StlColorscheme = 'gruvbox_default'     " specify the colorscheme of statusline
 
 " intellisense engine for Vim 8 & NeoVim
 "
@@ -106,12 +112,14 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 " # sudo pacman -S jdk11-openjdk
 let g:coc_global_extensions = [
             \ 'coc-java',
-            \ 'coc-snippets']
+            \ 'coc-snippets'
+            \]
 
 " tool for change the directory to the project root
 Plug 'airblade/vim-rooter'
 let rooter_patterns = ['.git']    " specify the root has a certain file or directory
 
+" comment stuff out
 Plug 'tpope/vim-commentary'
 
 call plug#end()
