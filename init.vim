@@ -56,6 +56,7 @@ let g:Lf_StlColorscheme = 'gruvbox_default'     " specify the colorscheme of sta
 "
 " require Node.js:
 " # sudo pacman -S nodejs
+" # sudo pacman -S npm
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " use <Tab> for trigger completion and navigate to the next
