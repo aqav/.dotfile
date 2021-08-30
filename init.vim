@@ -44,13 +44,13 @@ let g:Lf_UseVersionControlTool = 0              " always use better(e.g: ripgrep
 
 " unpopup mode
 " comment the options under popup mode to active
-" let g:Lf_StlColorscheme = 'gruvbox_material'    " specify the colorscheme of statusline
+let g:Lf_StlColorscheme = 'gruvbox_material'    " specify the colorscheme of statusline
 
 " popup mode
 " comment the options under unpopup mode to active
-let g:Lf_WindowPosition = 'popup'               " specify the position of the window
-let g:Lf_PopupPreviewPosition = 'bottom'        " specify where to locate the preview window when in popup mode
-let g:Lf_StlColorscheme = 'gruvbox_default'     " specify the colorscheme of statusline
+" let g:Lf_WindowPosition = 'popup'               " specify the position of the window
+" let g:Lf_PopupPreviewPosition = 'bottom'        " specify where to locate the preview window when in popup mode
+" let g:Lf_StlColorscheme = 'gruvbox_default'     " specify the colorscheme of statusline
 
 " intellisense engine for Vim 8 & NeoVim
 "
@@ -111,6 +111,8 @@ let g:coc_global_extensions = [
 " tool for change the directory to the project root
 Plug 'airblade/vim-rooter'
 let rooter_patterns = ['.git']    " specify the root has a certain file or directory
+
+Plug 'tpope/vim-commentary'
 
 call plug#end()
 
