@@ -2,7 +2,7 @@
 
 " plugin
 call plug#begin(stdpath('data') . '/plugged')
-
+google-java-ormat Artistic Stylef
 " distinguishable, contrast colorscheme and still pleasant for the eyes
 Plug 'morhetz/gruvbox'
 " let g:gruvbox_contrast_dark = 'hard'    " more constrast in dark mode
@@ -22,8 +22,8 @@ let g:airline#extensions#tabline#enabled = 1    " display all buffers when there
 "
 " for better performance:
 " :LeaderfInstallCExtension
- Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
- " common
+Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
+" common
 " I don't like these separators
 let g:Lf_StlSeparator ={
             \'left': '', 
@@ -40,13 +40,14 @@ let g:Lf_UseMemoryCache = 0                     " don't use the memory to cache 
 " preview window automatically for performance
 let g:Lf_PreviewResult = {
             \'BufTag': 0, 
-            \'Function': 0}
-let g:Lf_UseVersionControlTool = 0              " always use better(e.g: ripgrep) tool to index the files rather than version control one
+            \'Function': 0
+            \}
 " include hidden files and symbolic links into ripgrep
 let g:Lf_RgConfig = [
-        \ "--hidden",
-        \ "--follow"
-        \]
+            \ "--hidden",
+            \ "--follow"
+            \]
+let g:Lf_UseVersionControlTool = 0              " always use better(e.g: ripgrep) tool to index the files rather than version control one
 
 " unpopup mode
 " comment the options under popup mode to active
@@ -67,12 +68,12 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " use <Tab> for trigger completion and navigate to the next
 inoremap <silent><expr> <Tab>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
+            \ pumvisible() ? "\<C-n>" :
+            \ <SID>check_back_space() ? "\<TAB>" :
+            \ coc#refresh()
 function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
 " use <S-Tab> for navigate to the last
@@ -82,7 +83,7 @@ inoremap <expr> <S-TAB> pumvisible() ? "\<C-P>" : "\<C-H>"
 " 
 " remap <CR> for prevent line feed after select if navigate with <Tab> and <S-Tab>
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
-                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+            \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 " goto code navigation
 nmap <silent> gd <Plug>(coc-definition)
@@ -93,13 +94,13 @@ nmap <silent> gr <Plug>(coc-references)
 " use K to show documentation
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  elseif (coc#rpc#ready())
-    call CocActionAsync('doHover')
-  else
-    execute '!' . &keywordprg . " " . expand('<cword>')
-  endif
+    if(index(['vim','help'], &filetype) >= 0)
+        execute 'h '.expand('<cword>')
+    elseif (coc#rpc#ready())
+        call CocActionAsync('doHover')
+    else
+        execute '!' . &keywordprg . " " . expand('<cword>')
+    endif
 endfunction
 
 " highlight the symbol and its references when hovering
@@ -173,9 +174,9 @@ filetype plugin indent on    " enable automatically do language-dependent indent
 " function
 " jump to the last known cursor position when editing a file
 autocmd BufReadPost *
-        \ if line("'\"") > 1 && line("'\"") <= line("$") |
-        \        exe "normal! g`\"" |
-        \ endif
+            \ if line("'\"") > 1 && line("'\"") <= line("$") |
+            \        exe "normal! g`\"" |
+            \ endif
 
 " mapping
 " hjkl in Insert and Command mode
