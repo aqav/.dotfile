@@ -122,6 +122,8 @@ let rooter_patterns = ['.git']    " specify the root has a certain file or direc
 " comment stuff out
 Plug 'tpope/vim-commentary'
 
+Plug 'vim-autoformat/vim-autoformat'
+
 call plug#end()
 
 " common
