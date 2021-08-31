@@ -25,7 +25,7 @@ Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
 " common
 " I don't like these separators
 let g:Lf_StlSeparator ={
-            \'left': '', 
+            \'left': '',
             \'right': ''
             \}
 let g:Lf_ShowDevIcons = 0                       " I don't like these icons
@@ -35,10 +35,10 @@ let g:Lf_ShowHidden = 1                         " search hidden files and direct
 let g:Lf_FollowLinks = 1                        " search symlinks files and directories
 let g:Lf_UseCache = 0                           " don't cache the list for real-time refresh
 let g:Lf_UseMemoryCache = 0                     " don't use the memory to cache the indexing result for real-time refresh
-" prevent the default value for don't open any 
+" prevent the default value for don't open any
 " preview window automatically for performance
 let g:Lf_PreviewResult = {
-            \'BufTag': 0, 
+            \'BufTag': 0,
             \'Function': 0
             \}
 " include hidden files and symbolic links into ripgrep
@@ -79,7 +79,7 @@ endfunction
 inoremap <expr> <S-TAB> pumvisible() ? "\<C-P>" : "\<C-H>"
 
 " use <CR> for select the first completion and notify coc.nvim to format
-" 
+"
 " remap <CR> for prevent line feed after select if navigate with <Tab> and <S-Tab>
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
             \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
@@ -124,8 +124,8 @@ Plug 'tpope/vim-commentary'
 
 " plugin that format code by external programs
 "
-" Java: 
-" Artistic Style 
+" Java:
+" Artistic Style
 " http://astyle.sourceforge.net/
 " require: at least version 2.0.5 or higher
 "
