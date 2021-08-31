@@ -2,7 +2,6 @@
 
 " plugin
 call plug#begin(stdpath('data') . '/plugged')
-google-java-ormat Artistic Stylef
 " distinguishable, contrast colorscheme and still pleasant for the eyes
 Plug 'morhetz/gruvbox'
 " let g:gruvbox_contrast_dark = 'hard'    " more constrast in dark mode
