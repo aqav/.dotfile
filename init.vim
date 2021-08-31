@@ -122,6 +122,17 @@ let rooter_patterns = ['.git']    " specify the root has a certain file or direc
 " comment stuff out
 Plug 'tpope/vim-commentary'
 
+" plugin that format code by external programs
+"
+" Java: 
+" Artistic Style 
+" http://astyle.sourceforge.net/
+" require: at least version 2.0.5 or higher
+"
+" 1. download astyle_<version>_linux.tar.gz
+" 2. tar -zxvf astyle_<version>_linux.tar.gz
+" 3. compiling the source code
+" 4. add execute file into PATH
 Plug 'vim-autoformat/vim-autoformat'
 
 call plug#end()
