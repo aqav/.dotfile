@@ -132,8 +132,9 @@ Plug 'tpope/vim-commentary'
 " 1. download astyle_<version>_linux.tar.gz
 " 2. tar -zxvf astyle_<version>_linux.tar.gz
 " 3. compiling the source code
-" 4. add execute file into PATH
+" 4. add execute file into /usr/local/bin
 Plug 'vim-autoformat/vim-autoformat'
+autocmd BufWrite * :Autoformat    " format code upon saving file
 
 call plug#end()
 
