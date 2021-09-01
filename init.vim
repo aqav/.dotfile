@@ -8,7 +8,8 @@ Plug 'morhetz/gruvbox'
 
 " lean & mean status/tabline for vim that's light as air
 Plug 'vim-airline/vim-airline'
-let g:airline#extensions#tabline#enabled = 1    " display all buffers when there're only one tab
+let g:airline#extensions#tabline#enabled = 1                  " display all buffers when there're only one tab
+let g:airline#extensions#tabline#formatter = 'unique_tail'    " pwd might be too long sometime
 
 " efficient fuzzy finder that helps to locate something
 "
