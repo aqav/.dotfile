@@ -193,19 +193,41 @@ autocmd BufReadPost *
             \ endif
 
 " mapping
-" hjkl in Insert and Command mode
-inoremap <C-H> <Left>
-inoremap <C-J> <Down>
-inoremap <C-K> <Up>
-inoremap <C-L> <Right>
-cnoremap <C-H> <Left>
-cnoremap <C-J> <Down>
-cnoremap <C-K> <Up>
-cnoremap <C-L> <Right>
-" emacs operate in Insert and Command mode
-inoremap <C-A> <Home>
-inoremap <C-E> <End>
-inoremap <C-D> <Del>
-cnoremap <C-A> <Home>
-cnoremap <C-E> <End>
-cnoremap <C-D> <Del>
+" operator: <C-hjkl>
+noremap <C-h> <Left>
+noremap <C-j> <Down>
+noremap <C-k> <Up>
+noremap <C-l> <Right>
+
+inoremap <C-h> <Left>
+inoremap <C-j> <Down>
+inoremap <C-k> <Up>
+inoremap <C-l> <Right>
+
+cnoremap <C-h> <Left>
+cnoremap <C-j> <Down>
+cnoremap <C-k> <Up>
+cnoremap <C-l> <Right>
+
+" operator: <A-hjkl>
+noremap <A-h> b
+noremap <A-j> gj
+noremap <A-k> gk
+noremap <A-l> w
+
+inoremap <A-h> <C-Left>
+inoremap <A-j> <C-\><C-o>gj
+inoremap <A-k> <C-\><C-o>gk
+inoremap <A-l> <C-Right>
+
+cnoremap <A-h> <C-Left>
+cnoremap <A-l> <C-Right>
+
+" operator: <C-aed>, like bash
+inoremap <C-a> <Home>
+inoremap <C-e> <End>
+inoremap <C-d> <Del>
+
+cnoremap <C-a> <Home>
+cnoremap <C-e> <End>
+cnoremap <C-d> <Del>
