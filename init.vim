@@ -145,8 +145,8 @@ set nowrap                        " lines will not wrap displaying continues on 
 set scrolloff=8                   " minimal number of screen lines to keep above and below the cursor
 set backspace=indent,eol,start    " allow backspace over indent, line breaks, the start of insert
 set ttimeout                      " time out for mappings and key codes
-set ttimeoutlen=30                " milliseconds that is waited for a key code or mapped key sequence t>
-set updatetime=100                " milliseconds that nothing is typed for the swap file writed and Cur>
+set ttimeoutlen=30                " milliseconds that is waited for a key code or mapped key sequence
+set updatetime=100                " milliseconds that nothing is typed for the swap file writed, also used for CursorHold
 set splitbelow                    " splitting a window will put the new window below the current one
 set splitright                    " splitting a window will put the new window right of the current one
 set visualbell                    " use a visual bell instead of beeping
