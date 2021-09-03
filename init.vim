@@ -41,7 +41,12 @@ Plug 'tpope/vim-commentary'
 " 4. add execute file into /usr/local/bin
 Plug 'vim-autoformat/vim-autoformat'
 
+" make vim internal terminal better
+"
+" 1. # sudo pip3 install neovim-remote
+" 2. # sudo pacman -S which
 Plug 'skywind3000/vim-terminal-help'
+
 call plug#end()
 
 
@@ -165,7 +170,7 @@ let g:Lf_ShowHidden = 1                         " search hidden files and direct
 let g:Lf_FollowLinks = 1                        " search symlinks files and directories
 let g:Lf_UseCache = 0                           " don't cache the list for real-time refresh
 let g:Lf_UseMemoryCache = 0                     " don't use the memory to cache the indexing result for real-time refresh
-" prevent the default value for don't open any
+" prevent the default value to not open any
 " preview window automatically for performance
 let g:Lf_PreviewResult = {
             \'BufTag': 0,
@@ -247,6 +252,8 @@ autocmd BufWrite * :Autoformat    " format code upon saving file
 
 " ---- vim-terminal-help ----
 " aware I'm in terminal
-" must under colorscheme settings
-hi TermColor ctermbg=0 ctermfg=255
+" require under the line which config colorscheme
+hi TermColor ctermbg=0 ctermfg=15
 autocmd TermOpen * setlocal winhighlight=Normal:TermColor
+
+let g:terminal_list = 0       " hidden terminal buffer in the buffer list
