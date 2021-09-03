@@ -37,7 +37,7 @@ function fish_pwd() {
     echo "${elements[*]}"
 }
 
-# use j as cd and then z if cd failed 
+# use j as cd and then z if cd failed
 function j() {
     if [[ "$argv[1]" == "-"* ]]; then
         z "$@"
