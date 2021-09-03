@@ -1,143 +1,51 @@
 " ln -s ~/.dotfile/init.vim ~/.config/nvim/init.vim
 
-" plugin
+" ======== plugin ========
+
 call plug#begin(stdpath('data') . '/plugged')
+
 " distinguishable, contrast colorscheme and still pleasant for the eyes
 Plug 'morhetz/gruvbox'
-" let g:gruvbox_contrast_dark = 'hard'    " more constrast in dark mode
 
 " lean & mean status/tabline for vim that's light as air
 Plug 'vim-airline/vim-airline'
-let g:airline#extensions#tabline#enabled = 1                  " display all buffers when there're only one tab
-let g:airline#extensions#tabline#formatter = 'unique_tail'    " pwd might be too long sometime
 
 " efficient fuzzy finder that helps to locate something
 "
-" require python2 or python3 command available in path:
-" # sudo pacman -S python3
-"
-" for NeoVim:
-" # sudo pacman -S python-pip
-" # python3 -m pip install --user --upgrade pynvim
-"
-" for better performance:
-" :LeaderfInstallCExtension
+" 1. # sudo pacman -S python3
+" 2. # sudo pacman -S python-pip
+" 3. # python3 -m pip install --user --upgrade pynvim
+" 3. :LeaderfInstallCExtension
 Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
-" common
-" I don't like these separators
-let g:Lf_StlSeparator ={
-            \'left': '',
-            \'right': ''
-            \}
-let g:Lf_ShowDevIcons = 0                       " I don't like these icons
-let g:Lf_PreviewInPopup = 1                     " always preview the result in a popup window rather than buffer
-let g:Lf_PreviewCode = 1                        " preview the code rather than tag file when navigating the tags
-let g:Lf_ShowHidden = 1                         " search hidden files and directories
-let g:Lf_FollowLinks = 1                        " search symlinks files and directories
-let g:Lf_UseCache = 0                           " don't cache the list for real-time refresh
-let g:Lf_UseMemoryCache = 0                     " don't use the memory to cache the indexing result for real-time refresh
-" prevent the default value for don't open any
-" preview window automatically for performance
-let g:Lf_PreviewResult = {
-            \'BufTag': 0,
-            \'Function': 0
-            \}
-" include hidden files and symbolic links into ripgrep
-let g:Lf_RgConfig = [
-            \ "--hidden",
-            \ "--follow"
-            \]
-let g:Lf_UseVersionControlTool = 0              " always use better(e.g: ripgrep) tool to index the files rather than version control one
-
-" unpopup mode
-" comment the options under popup mode to active
-" let g:Lf_StlColorscheme = 'gruvbox_material'    " specify the colorscheme of statusline
-
-" popup mode
-" comment the options under unpopup mode to active
-let g:Lf_WindowPosition = 'popup'               " specify the position of the window
-let g:Lf_PopupPreviewPosition = 'bottom'        " specify where to locate the preview window when in popup mode
-let g:Lf_StlColorscheme = 'gruvbox_default'     " specify the colorscheme of statusline
 
 " intellisense engine for Vim 8 & NeoVim
 "
-" require Node.js:
-" # sudo pacman -S nodejs
-" # sudo pacman -S npm
+" 1. # sudo pacman -S nodejs
+" 2. # sudo pacman -S npm
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-" use <Tab> for trigger completion and navigate to the next
-inoremap <silent><expr> <Tab>
-            \ pumvisible() ? "\<C-n>" :
-            \ <SID>check_back_space() ? "\<TAB>" :
-            \ coc#refresh()
-function! s:check_back_space() abort
-    let col = col('.') - 1
-    return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
 
-" use <S-Tab> for navigate to the last
-inoremap <expr> <S-TAB> pumvisible() ? "\<C-P>" : "\<C-H>"
-
-" use <CR> for select the first completion and notify coc.nvim to format
-"
-" remap <CR> for prevent line feed after select if navigate with <Tab> and <S-Tab>
-inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
-            \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
-
-" goto code navigation
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-
-" use K to show documentation
-nnoremap <silent> K :call <SID>show_documentation()<CR>
-function! s:show_documentation()
-    if(index(['vim','help'], &filetype) >= 0)
-        execute 'h '.expand('<cword>')
-    elseif (coc#rpc#ready())
-        call CocActionAsync('doHover')
-    else
-        execute '!' . &keywordprg . " " . expand('<cword>')
-    endif
-endfunction
-
-" highlight the symbol and its references when hovering
-autocmd CursorHold * silent call CocActionAsync('highlight')
-
-" coc extensions need to install
-"
-" coc-java
-" requre: at least Java 11
-" # sudo pacman -S jdk11-openjdk
-let g:coc_global_extensions = [
-            \ 'coc-java',
-            \ 'coc-snippets'
-            \]
-
-" tool for change the directory to the project root
+" tool for change the directory to the project root with a consistent approach
 Plug 'airblade/vim-rooter'
-let rooter_patterns = ['.git']    " specify the root has a certain file or directory
 
 " comment stuff out
 Plug 'tpope/vim-commentary'
 
 " plugin that format code by external programs
 "
-" Java:
-" Artistic Style
-" http://astyle.sourceforge.net/
-" require: at least version 2.0.5 or higher
+" Java: Artistic Style(http://astyle.sourceforge.net/)
 "
-" 1. download astyle_<version>_linux.tar.gz
+" 1. download astyle_<version>_linux.tar.gz(at least version 2.0.5 or higher)
 " 2. tar -zxvf astyle_<version>_linux.tar.gz
 " 3. compiling the source code
 " 4. add execute file into /usr/local/bin
 Plug 'vim-autoformat/vim-autoformat'
-autocmd BufWrite * :Autoformat    " format code upon saving file
 
+Plug 'skywind3000/vim-terminal-help'
 call plug#end()
+
+
+" ======== config ========
 
 " common
 set nocompatible                  " make Vim not Vi-compatible
@@ -192,7 +100,9 @@ autocmd BufReadPost *
             \        exe "normal! g`\"" |
             \ endif
 
-" mapping
+
+" ======== mapping ========
+
 " operator: <C-hjkl>
 noremap <C-h> <Left>
 noremap <C-j> <Down>
@@ -231,3 +141,112 @@ inoremap <C-d> <Del>
 cnoremap <C-a> <Home>
 cnoremap <C-e> <End>
 cnoremap <C-d> <Del>
+
+
+" ======== plugin config ========
+
+" ---- gruvbox ----
+" let g:gruvbox_contrast_dark = 'hard'    " more constrast in dark mode
+
+" ---- vim-airlinea ----
+let g:airline#extensions#tabline#enabled = 1                  " display all buffers when there're only one tab
+let g:airline#extensions#tabline#formatter = 'unique_tail'    " pwd might be too long sometime
+
+" ---- LeaderF ----
+" I don't like these separators
+let g:Lf_StlSeparator ={
+            \'left': '',
+            \'right': ''
+            \}
+let g:Lf_ShowDevIcons = 0                       " I don't like these icons
+let g:Lf_PreviewInPopup = 1                     " always preview the result in a popup window rather than buffer
+let g:Lf_PreviewCode = 1                        " preview the code rather than tag file when navigating the tags
+let g:Lf_ShowHidden = 1                         " search hidden files and directories
+let g:Lf_FollowLinks = 1                        " search symlinks files and directories
+let g:Lf_UseCache = 0                           " don't cache the list for real-time refresh
+let g:Lf_UseMemoryCache = 0                     " don't use the memory to cache the indexing result for real-time refresh
+" prevent the default value for don't open any
+" preview window automatically for performance
+let g:Lf_PreviewResult = {
+            \'BufTag': 0,
+            \'Function': 0
+            \}
+" include hidden files and symbolic links into ripgrep
+let g:Lf_RgConfig = [
+            \ "--hidden",
+            \ "--follow"
+            \]
+let g:Lf_UseVersionControlTool = 0              " always use better(e.g: ripgrep) tool to index the files rather than version control one
+
+" unpopup mode
+" comment the options under popup mode to active
+" let g:Lf_StlColorscheme = 'gruvbox_material'    " specify the colorscheme of statusline
+
+" popup mode
+" comment the options under unpopup mode to active
+let g:Lf_WindowPosition = 'popup'               " specify the position of the window
+let g:Lf_PopupPreviewPosition = 'bottom'        " specify where to locate the preview window when in popup mode
+let g:Lf_StlColorscheme = 'gruvbox_default'     " specify the colorscheme of statusline
+
+" ---- coc.nvm ----
+" use <Tab> for trigger completion and navigate to the next
+inoremap <silent><expr> <Tab>
+            \ pumvisible() ? "\<C-n>" :
+            \ <SID>check_back_space() ? "\<TAB>" :
+            \ coc#refresh()
+function! s:check_back_space() abort
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" use <S-Tab> for navigate to the last
+inoremap <expr> <S-TAB> pumvisible() ? "\<C-P>" : "\<C-H>"
+
+" use <CR> for select the first completion and notify coc.nvim to format
+"
+" remap <CR> for prevent line feed after select if navigate with <Tab> and <S-Tab>
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+            \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+" goto code navigation
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" use K to show documentation
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+function! s:show_documentation()
+    if(index(['vim','help'], &filetype) >= 0)
+        execute 'h '.expand('<cword>')
+    elseif (coc#rpc#ready())
+        call CocActionAsync('doHover')
+    else
+        execute '!' . &keywordprg . " " . expand('<cword>')
+    endif
+endfunction
+
+" highlight the symbol and its references when hovering
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" coc extensions need to install
+"
+" coc-java
+" requre: at least Java 11
+" # sudo pacman -S jdk11-openjdk
+let g:coc_global_extensions = [
+            \ 'coc-java',
+            \ 'coc-snippets'
+            \]
+
+" ---- vim-rooter ----
+let rooter_patterns = ['.git']    " specify the root has a certain file or directory
+
+" ---- vim-autoformat ----
+autocmd BufWrite * :Autoformat    " format code upon saving file
+
+" ---- vim-terminal-help ----
+" aware I'm in terminal
+" must under colorscheme settings
+hi TermColor ctermbg=0 ctermfg=255
+autocmd TermOpen * setlocal winhighlight=Normal:TermColor
