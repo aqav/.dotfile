@@ -39,6 +39,10 @@ Plug 'tpope/vim-commentary'
 " 2. tar -zxvf astyle_<version>_linux.tar.gz
 " 3. compiling the source code
 " 4. add execute file into /usr/local/bin
+"
+" json: JS Beautifier(https://github.com/beautify-web/js-beautify)
+"
+" 1. # sudo pip install jsbeautifier
 Plug 'vim-autoformat/vim-autoformat'
 
 " make vim internal terminal better
