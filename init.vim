@@ -25,7 +25,6 @@ Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
 " 2. # sudo pacman -S npm
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-
 " tool for change the directory to the project root with a consistent approach
 Plug 'airblade/vim-rooter'
 
@@ -47,11 +46,6 @@ Plug 'vim-autoformat/vim-autoformat'
 " 1. # sudo pip3 install neovim-remote
 " 2. # sudo pacman -S which
 Plug 'skywind3000/vim-terminal-help'
-
-" illegal vim plugin for Git
-"
-" # sudo pacman -S git
-Plug 'tpope/vim-fugitive'
 
 call plug#end()
 
@@ -159,6 +153,10 @@ cnoremap <C-d> <Del>
 " ---- vim-airlinea ----
 let g:airline#extensions#tabline#enabled = 1                  " display all buffers when there're only one tab
 let g:airline#extensions#tabline#formatter = 'unique_tail'    " pwd might be too long sometime
+let g:airline_section_b = "
+            \%{get(g:,'coc_git_status','')}
+            \%{get(b:,'coc_git_status','')}
+            \"
 
 " ---- LeaderF ----
 " I don't like these separators
@@ -238,8 +236,10 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 " # sudo pacman -S jdk11-openjdk
 " # sudo pacman -S openjdk11-src
 let g:coc_global_extensions = [
+            \ 'coc-json',
             \ 'coc-java',
-            \ 'coc-snippets'
+            \ 'coc-snippets',
+            \ 'coc-git'
             \]
 
 " ---- vim-rooter ----
