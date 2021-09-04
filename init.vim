@@ -48,6 +48,9 @@ Plug 'vim-autoformat/vim-autoformat'
 " 2. # sudo pacman -S which
 Plug 'skywind3000/vim-terminal-help'
 
+" illegal vim plugin for Git
+"
+" # sudo pacman -S git
 Plug 'tpope/vim-fugitive'
 
 call plug#end()
@@ -153,9 +156,6 @@ cnoremap <C-d> <Del>
 
 " ======== plugin config ========
 
-" ---- gruvbox ----
-" let g:gruvbox_contrast_dark = 'hard'    " more constrast in dark mode
-
 " ---- vim-airlinea ----
 let g:airline#extensions#tabline#enabled = 1                  " display all buffers when there're only one tab
 let g:airline#extensions#tabline#formatter = 'unique_tail'    " pwd might be too long sometime
@@ -186,12 +186,6 @@ let g:Lf_RgConfig = [
             \]
 let g:Lf_UseVersionControlTool = 0              " always use better(e.g: ripgrep) tool to index the files rather than version control one
 
-" unpopup mode
-" comment the options under popup mode to active
-" let g:Lf_StlColorscheme = 'gruvbox_material'    " specify the colorscheme of statusline
-
-" popup mode
-" comment the options under unpopup mode to active
 let g:Lf_WindowPosition = 'popup'               " specify the position of the window
 let g:Lf_PopupPreviewPosition = 'bottom'        " specify where to locate the preview window when in popup mode
 let g:Lf_StlColorscheme = 'gruvbox_default'     " specify the colorscheme of statusline
@@ -262,4 +256,3 @@ autocmd TermOpen * setlocal winhighlight=Normal:TermColor
 
 " ---- netrw ----
 let g:netrw_banner = 0    " suppress the banner
-
