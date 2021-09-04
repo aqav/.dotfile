@@ -3,7 +3,7 @@
 # -- common ---
 [[ $- != *i* ]] && return    # don't do anything if not running interactively
 
-source ~/.dotfile/.sh                 # source my common shell configuration
+source ~/.dotfile/.sh        # source my common shell configuration
 
 unsetopt beep                # no annoyed beep sound
 
@@ -78,8 +78,8 @@ _fzf_compgen_dir() {
 # custom fuzzy completion(experimental) for j
 _fzf_complete_j() {
     _fzf_complete --reverse -- "$@" < <(
-        fd --hidden --follow --type directory
-    )
+    fd --hidden --follow --type directory
+)
 }
 # default options for all fzf command and key bindings
 export FZF_DEFAULT_OPTS='--layout=reverse --info=inline --height=50% --multi'
