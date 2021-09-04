@@ -36,7 +36,7 @@ Plug 'tpope/vim-commentary'
 " Java: Artistic Style(http://astyle.sourceforge.net/)
 "
 " 1. download astyle_<version>_linux.tar.gz(at least version 2.0.5 or higher)
-" 2. tar -zxvf astyle_<version>_linux.tar.gz
+" 2. decompress astyle_<version>_linux.tar.gz
 " 3. compiling the source code
 " 4. add execute file into /usr/local/bin
 "
@@ -235,10 +235,12 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " coc extensions need to install
 "
-" coc-java
-" requre: at least Java 11
-" # sudo pacman -S jdk11-openjdk
-" # sudo pacman -S openjdk11-src
+" coc-java(at least Java 11)
+" 1. # sudo pacman -S jdk11-openjdk
+" 2. # sudo pacman -S openjdk11-src
+"
+" coc-git
+" 1. # sudo pacman -S git
 let g:coc_global_extensions = [
             \ 'coc-json',
             \ 'coc-java',
