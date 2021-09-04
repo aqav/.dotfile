@@ -15,7 +15,8 @@ Plug 'vim-airline/vim-airline'
 " 1. # sudo pacman -S python3
 " 2. # sudo pacman -S python-pip
 " 3. # python3 -m pip install --user --upgrade pynvim
-" 3. :LeaderfInstallCExtension
+" 4. :LeaderfInstallCExtension(for performance)
+" 5. # sudo pacman -S ripgrep(for better index)
 Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
 
 " intellisense engine for Vim 8 & NeoVim
@@ -46,6 +47,8 @@ Plug 'vim-autoformat/vim-autoformat'
 " 1. # sudo pip3 install neovim-remote
 " 2. # sudo pacman -S which
 Plug 'skywind3000/vim-terminal-help'
+
+Plug 'tpope/vim-fugitive'
 
 call plug#end()
 
@@ -239,6 +242,7 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 " coc-java
 " requre: at least Java 11
 " # sudo pacman -S jdk11-openjdk
+" # sudo pacman -S openjdk11-src
 let g:coc_global_extensions = [
             \ 'coc-java',
             \ 'coc-snippets'
@@ -256,4 +260,6 @@ autocmd BufWrite * :Autoformat    " format code upon saving file
 hi TermColor ctermbg=0 ctermfg=15
 autocmd TermOpen * setlocal winhighlight=Normal:TermColor
 
-let g:terminal_list = 0       " hidden terminal buffer in the buffer list
+" ---- netrw ----
+let g:netrw_banner = 0    " suppress the banner
+
