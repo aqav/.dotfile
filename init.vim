@@ -40,7 +40,7 @@ Plug 'tpope/vim-commentary'
 " 3. compiling the source code
 " 4. add execute file into /usr/local/bin
 "
-" json: JS Beautifier(https://github.com/beautify-web/js-beautify)
+" Json: JS Beautifier(https://github.com/beautify-web/js-beautify)
 "
 " 1. # sudo pip install jsbeautifier
 Plug 'vim-autoformat/vim-autoformat'
@@ -183,8 +183,8 @@ let g:Lf_PreviewResult = {
             \}
 " include hidden files and symbolic links into ripgrep
 let g:Lf_RgConfig = [
-            \ "--hidden",
-            \ "--follow"
+            \"--hidden",
+            \"--follow"
             \]
 let g:Lf_UseVersionControlTool = 0              " always use better(e.g: ripgrep) tool to index the files rather than version control one
 
@@ -242,14 +242,18 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 " coc-git
 " 1. # sudo pacman -S git
 let g:coc_global_extensions = [
-            \ 'coc-json',
-            \ 'coc-java',
-            \ 'coc-snippets',
-            \ 'coc-git'
+            \'coc-json',
+            \'coc-java',
+            \'coc-snippets',
+            \'coc-git'
             \]
 
 " ---- vim-rooter ----
-let rooter_patterns = ['.git']    " specify the root has a certain file or directory
+" specify the root has a certain file or directory
+let rooter_patterns = [
+            \'.git',
+            \'pom.xml'
+            \]
 
 " ---- vim-autoformat ----
 autocmd BufWrite * :Autoformat    " format code upon saving file
