@@ -34,14 +34,12 @@ Plug 'tpope/vim-commentary'
 " plugin that format code by external programs
 "
 " Java: Artistic Style(http://astyle.sourceforge.net/)
-"
 " 1. download astyle_<version>_linux.tar.gz(at least version 2.0.5 or higher)
 " 2. decompress astyle_<version>_linux.tar.gz
 " 3. compiling the source code
 " 4. add execute file into /usr/local/bin
 "
 " Json: JS Beautifier(https://github.com/beautify-web/js-beautify)
-"
 " 1. # sudo pip install jsbeautifier
 Plug 'vim-autoformat/vim-autoformat'
 
@@ -50,6 +48,11 @@ Plug 'vim-autoformat/vim-autoformat'
 " 1. # sudo pip3 install neovim-remote
 " 2. # sudo pacman -S which
 Plug 'skywind3000/vim-terminal-help'
+
+" generic client for Debug Adapters
+"
+" Java: :VimspectorInstall vscode-java-debug
+Plug 'puremourning/vimspector'
 
 call plug#end()
 
@@ -194,14 +197,14 @@ let g:Lf_StlColorscheme = 'gruvbox_default'     " specify the colorscheme of sta
 
 " ---- coc.nvm ----
 " use <Tab> for trigger completion and navigate to the next
-inoremap <silent><expr> <Tab>
-            \ pumvisible() ? "\<C-n>" :
-            \ <SID>check_back_space() ? "\<TAB>" :
-            \ coc#refresh()
 function! s:check_back_space() abort
     let col = col('.') - 1
     return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
+inoremap <silent><expr> <Tab>
+            \ pumvisible() ? "\<C-n>" :
+            \ <SID>check_back_space() ? "\<TAB>" :
+            \ coc#refresh()
 
 " use <S-Tab> for navigate to the last
 inoremap <expr> <S-TAB> pumvisible() ? "\<C-P>" : "\<C-H>"
@@ -218,8 +221,7 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
-" use K to show documentation
-nnoremap <silent> K :call <SID>show_documentation()<CR>
+" extend K to show documentation
 function! s:show_documentation()
     if(index(['vim','help'], &filetype) >= 0)
         execute 'h '.expand('<cword>')
@@ -229,6 +231,7 @@ function! s:show_documentation()
         execute '!' . &keywordprg . " " . expand('<cword>')
     endif
 endfunction
+nnoremap <silent> K :call <SID>show_documentation()<CR>
 
 " highlight the symbol and its references when hovering
 autocmd CursorHold * silent call CocActionAsync('highlight')
@@ -244,6 +247,7 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 let g:coc_global_extensions = [
             \'coc-json',
             \'coc-java',
+            \'coc-java-debug',
             \'coc-snippets',
             \'coc-git'
             \]
@@ -252,7 +256,8 @@ let g:coc_global_extensions = [
 " specify the root has a certain file or directory
 let rooter_patterns = [
             \'.git',
-            \'pom.xml'
+            \'pom.xml',
+            \'.vimspector.json'
             \]
 
 " ---- vim-autoformat ----
@@ -266,3 +271,23 @@ autocmd TermOpen * setlocal winhighlight=Normal:TermColor
 
 " ---- netrw ----
 let g:netrw_banner = 0    " suppress the banner
+
+" ---- vimspector ----
+let g:vimspector_enable_mappings = 'HUMAN'    " use more human-friendly mappings
+" the value will be used when running :VimspectorInstall with no argus or :VimspectorUpdate
+let g:vimspector_install_gadgets = [
+            \'vscode-java-debug'
+            \]
+
+" use <F2> to start Java debug by coc-java-debug
+function! JavaStartDebugCallback(err, port)
+    call vimspector#LaunchWithSettings({ "DAPPort": a:port })
+endfunction
+function JavaStartDebug()
+    call CocActionAsync(
+                \ 'runCommand',
+                \ 'vscode.java.startDebugSession',
+                \ function('JavaStartDebugCallback')
+                \)
+endfunction
+nmap <F2> :call JavaStartDebug()<CR>
