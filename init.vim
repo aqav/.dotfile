@@ -290,4 +290,4 @@ function JavaStartDebug()
                 \ function('JavaStartDebugCallback')
                 \)
 endfunction
-nmap <F2> :call JavaStartDebug()<CR>
+nmap <silent> <F2> :call JavaStartDebug()<CR>
