@@ -273,13 +273,67 @@ autocmd TermOpen * setlocal winhighlight=Normal:TermColor
 let g:netrw_banner = 0    " suppress the banner
 
 " ---- vimspector ----
-let g:vimspector_enable_mappings = 'HUMAN'    " use more human-friendly mappings
-" the value will be used when running :VimspectorInstall with no argus or :VimspectorUpdate
+" the value will be used when running :VimspectorInstall with no argus and :VimspectorUpdate
 let g:vimspector_install_gadgets = [
             \'vscode-java-debug'
             \]
 
-" use <F2> to start Java debug by coc-java-debug
+" HUMAN key mappings enabled
+nmap <silent> <F8> <Plug>VimspectorAddFunctionBreakpoint
+nmap <silent> <LocalLeader><F8> <Plug>VimspectorRunToCursor
+nmap <silent> <F9> <Plug>VimspectorToggleBreakpoint
+nmap <silent> <LocalLeader><F9> <Plug>VimspectorToggleConditionalBreakpoint
+
+" HUMAN key mappings enabled while debugging and clear them when closing debugger
+let s:mapped = {}
+function! s:OnJumpToFrame() abort
+    echo "enter"
+    if has_key( s:mapped, string( bufnr() ) )
+        return
+    endif
+    nmap <silent> <buffer> <F3> <Plug>VimspectorStop
+    nmap <silent> <buffer> <F4> <Plug>VimspectorRestart
+    nmap <silent> <buffer> <F5> <Plug>VimspectorContinue
+    nmap <silent> <buffer> <F6> <Plug>VimspectorPause
+    nmap <silent> <buffer> <F10> <Plug>VimspectorStepOver
+    nmap <silent> <buffer> <F11> <Plug>VimspectorStepInto
+    nmap <silent> <buffer> <F12> <Plug>VimspectorStepOut
+    nmap <silent> <buffer> <LocalLeader>di <Plug>VimspectorBalloonEval
+    xmap <silent> <buffer> <LocalLeader>di <Plug>VimspectorBalloonEval
+    let s:mapped[ string( bufnr() ) ] = { 'modifiable': &modifiable }
+    setlocal nomodifiable
+endfunction
+function! s:OnDebugEnd() abort
+    echo "end"
+    let original_buf = bufnr()
+    let hidden = &hidden
+    try
+        set hidden
+        for bufnr in keys( s:mapped )
+            try
+                execute 'noautocmd buffer' bufnr
+                silent! nunmap <buffer> <F3>
+                silent! nunmap <buffer> <F4>
+                silent! nunmap <buffer> <F5>
+                silent! nunmap <buffer> <F6>
+                silent! nunmap <buffer> <F10>
+                silent! nunmap <buffer> <F11>
+                silent! nunmap <buffer> <F12>
+                silent! nunmap <buffer> <LocalLeader>di
+                silent! xunmap <buffer> <LocalLeader>di
+                let &l:modifiable = s:mapped[ bufnr ][ 'modifiable' ]
+            endtry
+        endfor
+    finally
+        execute 'noautocmd buffer' original_buf
+        let &hidden = hidden
+    endtry
+    let s:mapped = {}
+endfunction
+autocmd User VimspectorJumpedToFrame call s:OnJumpToFrame()
+autocmd User VimspectorDebugEnded call s:OnDebugEnd()
+
+" use <Leader><F5> to start Java debug by coc-java-debug for no ask of DAPPort
 function! JavaStartDebugCallback(err, port)
     call vimspector#LaunchWithSettings({ "DAPPort": a:port })
 endfunction
@@ -290,4 +344,4 @@ function JavaStartDebug()
                 \ function('JavaStartDebugCallback')
                 \)
 endfunction
-nmap <silent> <F2> :call JavaStartDebug()<CR>
+nmap <silent> <LocalLeader><F5> :call JavaStartDebug()<CR>
