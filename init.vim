@@ -252,6 +252,18 @@ let g:coc_global_extensions = [
             \'coc-git'
             \]
 
+" text objects of function and class provided by coc
+"
+" requre 'textDocument.ducometSymbol' support from the LSP
+xmap if <Plug>(coc-funcobj-i)
+omap if <Plug>(coc-funcobj-i)
+xmap af <Plug>(coc-funcobj-a)
+omap af <Plug>(coc-funcobj-a)
+xmap ic <Plug>(coc-classobj-i)
+omap ic <Plug>(coc-classobj-i)
+xmap ac <Plug>(coc-classobj-a)
+omap ac <Plug>(coc-classobj-a)
+
 " ---- vim-rooter ----
 " specify the root has a certain file or directory
 let rooter_patterns = [
@@ -345,3 +357,4 @@ function JavaStartDebug()
                 \)
 endfunction
 nmap <silent> <Leader><F5> :call JavaStartDebug()<CR>
+
