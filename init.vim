@@ -292,11 +292,11 @@ function! s:OnJumpToFrame() abort
     nmap <silent> <F4> <Plug>VimspectorRestart
     nmap <silent> <F5> <Plug>VimspectorContinue
     nmap <silent> <F6> <Plug>VimspectorPause
+    nmap <silent> <F7> <Plug>VimspectorBalloonEval
+    xmap <silent> <F7> <Plug>VimspectorBalloonEval
     nmap <silent> <F10> <Plug>VimspectorStepOver
     nmap <silent> <F11> <Plug>VimspectorStepInto
     nmap <silent> <F12> <Plug>VimspectorStepOut
-    nmap <silent> <Leader>di <Plug>VimspectorBalloonEval
-    xmap <silent> <Leader>di <Plug>VimspectorBalloonEval
     let s:mapped[ string( bufnr() ) ] = { 'modifiable': &modifiable }
     setlocal nomodifiable
 endfunction
@@ -312,11 +312,11 @@ function! s:OnDebugEnd() abort
                 silent! nunmap <F4>
                 silent! nunmap <F5>
                 silent! nunmap <F6>
+                silent! nunmap <F7>
+                silent! xunmap <F7>
                 silent! nunmap <F10>
                 silent! nunmap <F11>
                 silent! nunmap <F12>
-                silent! nunmap <Leader>di
-                silent! xunmap <Leader>di
                 let &l:modifiable = s:mapped[ bufnr ][ 'modifiable' ]
             endtry
         endfor
