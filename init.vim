@@ -279,8 +279,6 @@ let g:vimspector_install_gadgets = [
             \]
 
 " HUMAN key mappings enabled
-nmap <silent> <F8> <Plug>VimspectorAddFunctionBreakpoint
-nmap <silent> <Leader><F8> <Plug>VimspectorRunToCursor
 nmap <silent> <F9> <Plug>VimspectorToggleBreakpoint
 nmap <silent> <Leader><F9> <Plug>VimspectorToggleConditionalBreakpoint
 
