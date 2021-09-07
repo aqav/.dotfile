@@ -288,15 +288,15 @@ function! s:OnJumpToFrame() abort
     if has_key( s:mapped, string( bufnr() ) )
         return
     endif
-    nmap <silent> <buffer> <F3> <Plug>VimspectorStop
-    nmap <silent> <buffer> <F4> <Plug>VimspectorRestart
-    nmap <silent> <buffer> <F5> <Plug>VimspectorContinue
-    nmap <silent> <buffer> <F6> <Plug>VimspectorPause
-    nmap <silent> <buffer> <F10> <Plug>VimspectorStepOver
-    nmap <silent> <buffer> <F11> <Plug>VimspectorStepInto
-    nmap <silent> <buffer> <F12> <Plug>VimspectorStepOut
-    nmap <silent> <buffer> <Leader>di <Plug>VimspectorBalloonEval
-    xmap <silent> <buffer> <Leader>di <Plug>VimspectorBalloonEval
+    nmap <silent> <F3> <Plug>VimspectorStop
+    nmap <silent> <F4> <Plug>VimspectorRestart
+    nmap <silent> <F5> <Plug>VimspectorContinue
+    nmap <silent> <F6> <Plug>VimspectorPause
+    nmap <silent> <F10> <Plug>VimspectorStepOver
+    nmap <silent> <F11> <Plug>VimspectorStepInto
+    nmap <silent> <F12> <Plug>VimspectorStepOut
+    nmap <silent> <Leader>di <Plug>VimspectorBalloonEval
+    xmap <silent> <Leader>di <Plug>VimspectorBalloonEval
     let s:mapped[ string( bufnr() ) ] = { 'modifiable': &modifiable }
     setlocal nomodifiable
 endfunction
@@ -308,15 +308,15 @@ function! s:OnDebugEnd() abort
         for bufnr in keys( s:mapped )
             try
                 execute 'noautocmd buffer' bufnr
-                silent! nunmap <buffer> <F3>
-                silent! nunmap <buffer> <F4>
-                silent! nunmap <buffer> <F5>
-                silent! nunmap <buffer> <F6>
-                silent! nunmap <buffer> <F10>
-                silent! nunmap <buffer> <F11>
-                silent! nunmap <buffer> <F12>
-                silent! nunmap <buffer> <Leader>di
-                silent! xunmap <buffer> <Leader>di
+                silent! nunmap <F3>
+                silent! nunmap <F4>
+                silent! nunmap <F5>
+                silent! nunmap <F6>
+                silent! nunmap <F10>
+                silent! nunmap <F11>
+                silent! nunmap <F12>
+                silent! nunmap <Leader>di
+                silent! xunmap <Leader>di
                 let &l:modifiable = s:mapped[ bufnr ][ 'modifiable' ]
             endtry
         endfor
