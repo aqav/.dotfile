@@ -280,14 +280,13 @@ let g:vimspector_install_gadgets = [
 
 " HUMAN key mappings enabled
 nmap <silent> <F8> <Plug>VimspectorAddFunctionBreakpoint
-nmap <silent> <LocalLeader><F8> <Plug>VimspectorRunToCursor
+nmap <silent> <Leader><F8> <Plug>VimspectorRunToCursor
 nmap <silent> <F9> <Plug>VimspectorToggleBreakpoint
-nmap <silent> <LocalLeader><F9> <Plug>VimspectorToggleConditionalBreakpoint
+nmap <silent> <Leader><F9> <Plug>VimspectorToggleConditionalBreakpoint
 
 " HUMAN key mappings enabled while debugging and clear them when closing debugger
 let s:mapped = {}
 function! s:OnJumpToFrame() abort
-    echo "enter"
     if has_key( s:mapped, string( bufnr() ) )
         return
     endif
@@ -298,13 +297,12 @@ function! s:OnJumpToFrame() abort
     nmap <silent> <buffer> <F10> <Plug>VimspectorStepOver
     nmap <silent> <buffer> <F11> <Plug>VimspectorStepInto
     nmap <silent> <buffer> <F12> <Plug>VimspectorStepOut
-    nmap <silent> <buffer> <LocalLeader>di <Plug>VimspectorBalloonEval
-    xmap <silent> <buffer> <LocalLeader>di <Plug>VimspectorBalloonEval
+    nmap <silent> <buffer> <Leader>di <Plug>VimspectorBalloonEval
+    xmap <silent> <buffer> <Leader>di <Plug>VimspectorBalloonEval
     let s:mapped[ string( bufnr() ) ] = { 'modifiable': &modifiable }
     setlocal nomodifiable
 endfunction
 function! s:OnDebugEnd() abort
-    echo "end"
     let original_buf = bufnr()
     let hidden = &hidden
     try
@@ -319,8 +317,8 @@ function! s:OnDebugEnd() abort
                 silent! nunmap <buffer> <F10>
                 silent! nunmap <buffer> <F11>
                 silent! nunmap <buffer> <F12>
-                silent! nunmap <buffer> <LocalLeader>di
-                silent! xunmap <buffer> <LocalLeader>di
+                silent! nunmap <buffer> <Leader>di
+                silent! xunmap <buffer> <Leader>di
                 let &l:modifiable = s:mapped[ bufnr ][ 'modifiable' ]
             endtry
         endfor
@@ -344,4 +342,4 @@ function JavaStartDebug()
                 \ function('JavaStartDebugCallback')
                 \)
 endfunction
-nmap <silent> <LocalLeader><F5> :call JavaStartDebug()<CR>
+nmap <silent> <Leader><F5> :call JavaStartDebug()<CR>
