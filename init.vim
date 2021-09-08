@@ -270,7 +270,7 @@ xmap ig <Plug>(coc-git-chunk-inner)
 omap ag <Plug>(coc-git-chunk-outer)
 xmap ag <Plug>(coc-git-chunk-outer)
 
-" key mapping provided by coc-git
+" key mappings for provided by coc-git
 nmap gs <Plug>(coc-git-chunkinfo)
 nmap gm <Plug>(coc-git-commit)
 nmap [g <Plug>(coc-git-prevchunk)
@@ -278,13 +278,19 @@ nmap ]g <Plug>(coc-git-nextchunk)
 nmap [c <Plug>(coc-git-prevconflict)
 nmap ]c <Plug>(coc-git-nextconflict)
 
+" key mappings for diagnostic
 nmap <silent> [d <Plug>(coc-diagnostic-prev)
 nmap <silent> ]d <Plug>(coc-diagnostic-next)
 
+" symbol rename
 nmap <leader>rn <Plug>(coc-rename)
 
-xmap <leader>a  <Plug>(coc-codeaction-selected)
+" key mappings for code action
+xmap <leader>a  <Plug>(coc-codeaction-selected)    " csdasd[:
 nmap <leader>a  <Plug>(coc-codeaction-selected)
+nmap <leader>ac  <Plug>(coc-codeaction-line)
+nmap <leader>af  <Plug>(coc-codeaction)
+nmap <leader>qf  <Plug>(coc-fix-current)
 
 " ---- vim-rooter ----
 " specify the root has a certain file or directory
@@ -380,14 +386,3 @@ function JavaStartDebug()
                 \)
 endfunction
 nmap <silent> <Leader><F5> :call JavaStartDebug()<CR>
-
-" Applying codeAction to the selected region.
-" Example: `<leader>aap` for current paragraph
-xmap <leader>a  <Plug>(coc-codeaction-selected)
-nmap <leader>a  <Plug>(coc-codeaction-selected)
-
-" Remap keys for applying codeAction to the current buffer.
-nmap <leader>ac  <Plug>(coc-codeaction)
-" Apply AutoFix to problem on the current line.
-nmap <leader>qf  <Plug>(coc-fix-current)
-
