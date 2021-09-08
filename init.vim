@@ -263,6 +263,10 @@ xmap ic <Plug>(coc-classobj-i)
 omap ic <Plug>(coc-classobj-i)
 xmap ac <Plug>(coc-classobj-a)
 omap ac <Plug>(coc-classobj-a)
+omap ig <Plug>(coc-git-chunk-inner)
+xmap ig <Plug>(coc-git-chunk-inner)
+omap ag <Plug>(coc-git-chunk-outer)
+xmap ag <Plug>(coc-git-chunk-outer)
 
 " ---- vim-rooter ----
 " specify the root has a certain file or directory
@@ -357,4 +361,3 @@ function JavaStartDebug()
                 \)
 endfunction
 nmap <silent> <Leader><F5> :call JavaStartDebug()<CR>
-
