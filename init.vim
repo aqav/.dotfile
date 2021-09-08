@@ -263,10 +263,28 @@ xmap ic <Plug>(coc-classobj-i)
 omap ic <Plug>(coc-classobj-i)
 xmap ac <Plug>(coc-classobj-a)
 omap ac <Plug>(coc-classobj-a)
+
+" text objects of git chunk provided by coc-git
 omap ig <Plug>(coc-git-chunk-inner)
 xmap ig <Plug>(coc-git-chunk-inner)
 omap ag <Plug>(coc-git-chunk-outer)
 xmap ag <Plug>(coc-git-chunk-outer)
+
+" key mapping provided by coc-git
+nmap gs <Plug>(coc-git-chunkinfo)
+nmap gm <Plug>(coc-git-commit)
+nmap [g <Plug>(coc-git-prevchunk)
+nmap ]g <Plug>(coc-git-nextchunk)
+nmap [c <Plug>(coc-git-prevconflict)
+nmap ]c <Plug>(coc-git-nextconflict)
+
+nmap <silent> [d <Plug>(coc-diagnostic-prev)
+nmap <silent> ]d <Plug>(coc-diagnostic-next)
+
+nmap <leader>rn <Plug>(coc-rename)
+
+xmap <leader>a  <Plug>(coc-codeaction-selected)
+nmap <leader>a  <Plug>(coc-codeaction-selected)
 
 " ---- vim-rooter ----
 " specify the root has a certain file or directory
@@ -349,6 +367,7 @@ endfunction
 autocmd User VimspectorJumpedToFrame call s:OnJumpToFrame()
 autocmd User VimspectorDebugEnded call s:OnDebugEnd()
 
+
 " use <Leader><F5> to start Java debug by coc-java-debug for no ask of DAPPort
 function! JavaStartDebugCallback(err, port)
     call vimspector#LaunchWithSettings({ "DAPPort": a:port })
@@ -361,3 +380,14 @@ function JavaStartDebug()
                 \)
 endfunction
 nmap <silent> <Leader><F5> :call JavaStartDebug()<CR>
+
+" Applying codeAction to the selected region.
+" Example: `<leader>aap` for current paragraph
+xmap <leader>a  <Plug>(coc-codeaction-selected)
+nmap <leader>a  <Plug>(coc-codeaction-selected)
+
+" Remap keys for applying codeAction to the current buffer.
+nmap <leader>ac  <Plug>(coc-codeaction)
+" Apply AutoFix to problem on the current line.
+nmap <leader>qf  <Plug>(coc-fix-current)
+
