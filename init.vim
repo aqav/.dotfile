@@ -286,11 +286,11 @@ nmap <silent> ]d <Plug>(coc-diagnostic-next)
 nmap <leader>rn <Plug>(coc-rename)
 
 " key mappings for code action
-xmap <leader>a  <Plug>(coc-codeaction-selected)
-nmap <leader>a  <Plug>(coc-codeaction-selected)
-nmap <leader>ac  <Plug>(coc-codeaction-line)
-nmap <leader>af  <Plug>(coc-codeaction)
-nmap <leader>qf  <Plug>(coc-fix-current)
+xmap <leader>a <Plug>(coc-codeaction-selected)
+nmap <leader>a <Plug>(coc-codeaction-selected)
+nmap <leader>ac <Plug>(coc-codeaction-line)
+nmap <leader>af <Plug>(coc-codeaction)
+nmap <leader>qf <Plug>(coc-fix-current)
 
 " ---- vim-rooter ----
 " specify the root has a certain file or directory
