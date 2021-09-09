@@ -309,6 +309,7 @@ autocmd BufWrite * :Autoformat    " format code upon saving file
 " ---- vim-terminal-help ----
 "
 " key mappings of windows swith provided by vim-terminal-help:
+"
 " noremap <A-H> <C-w>h
 " noremap <A-J> <C-w>j
 " noremap <A-K> <C-w>k
@@ -325,7 +326,7 @@ autocmd BufWrite * :Autoformat    " format code upon saving file
 " tnoremap <A-N> <C-\><C-n><C-w>p
 " tnoremap <A-q> <C-\><C-n>
 " tnoremap <A--> <C-\><C-n>"0pa
-"
+
 " aware I'm in terminal
 " require under the line which config colorscheme
 hi TermColor ctermbg=0 ctermfg=15
@@ -339,7 +340,7 @@ let g:netrw_banner = 0    " suppress the banner
 " 1. # cd ~/.local/share/nvim/plugged/vimspector
 " 2. # rm -r configurations
 " 3. # ln -s ~/.dotfile/.vimspector configurations
-"
+
 " the value will be used when running :VimspectorInstall with no argus and :VimspectorUpdate
 let g:vimspector_install_gadgets = [
             \'vscode-java-debug'
