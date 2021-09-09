@@ -1,0 +1,19 @@
+{
+    "configurations": {
+        "java: launch": {
+            "adapter": "vscode-java",
+            "configuration": {
+                "request": "launch",
+                "mainClass": "${MainClass}",
+                "sourcePaths": ["${cwd}/src/main/java"],
+                "classPaths": ["${cwd}/target/classes"]
+            },
+            "breakpoints": {
+                "exception": {
+                    "caught": "",
+                    "uncaught": ""
+                }
+            }
+        }
+    }
+}

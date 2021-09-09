@@ -313,6 +313,11 @@ autocmd TermOpen * setlocal winhighlight=Normal:TermColor
 let g:netrw_banner = 0    " suppress the banner
 
 " ---- vimspector ----
+"
+" 1. # cd ~/.local/share/nvim/plugged/vimspector
+" 2. # rm -r configurations
+" 3. # ln -s ~/.dotfile/.vimspector configurations
+"
 " the value will be used when running :VimspectorInstall with no argus and :VimspectorUpdate
 let g:vimspector_install_gadgets = [
             \'vscode-java-debug'
@@ -372,7 +377,6 @@ function! s:OnDebugEnd() abort
 endfunction
 autocmd User VimspectorJumpedToFrame call s:OnJumpToFrame()
 autocmd User VimspectorDebugEnded call s:OnDebugEnd()
-
 
 " use <Leader><F5> to start Java debug by coc-java-debug for no ask of DAPPort
 function! JavaStartDebugCallback(err, port)
