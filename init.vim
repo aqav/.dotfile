@@ -114,6 +114,9 @@ autocmd BufReadPost *
 
 
 " ======== mapping ========
+"
+" Ctrl key mapping is case-insensitivity
+" Alt key mapping is case-sensitivity
 
 " operator: <C-hjkl>
 noremap <C-h> <Left>
@@ -304,6 +307,25 @@ let rooter_patterns = [
 autocmd BufWrite * :Autoformat    " format code upon saving file
 
 " ---- vim-terminal-help ----
+"
+" key mappings of windows swith provided by vim-terminal-help:
+" noremap <A-H> <C-w>h
+" noremap <A-J> <C-w>j
+" noremap <A-K> <C-w>k
+" noremap <A-L> <C-w>l
+" inoremap <A-H> <ESC><C-w>h
+" inoremap <A-J> <ESC><C-w>j
+" inoremap <A-K> <ESC><C-w>k
+" inoremap <A-L> <ESC><C-w>l
+" tnoremap <A-H> <C-\><C-n><C-w>h
+" tnoremap <A-J> <C-\><C-n><C-w>j
+" tnoremap <A-K> <C-\><C-n><C-w>k
+" tnoremap <A-L> <C-\><C-n><C-w>l
+"
+" tnoremap <A-N> <C-\><C-n><C-w>p
+" tnoremap <A-q> <C-\><C-n>
+" tnoremap <A--> <C-\><C-n>"0pa
+"
 " aware I'm in terminal
 " require under the line which config colorscheme
 hi TermColor ctermbg=0 ctermfg=15
