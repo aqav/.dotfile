@@ -62,23 +62,23 @@ export _ZL_HYPHEN=1            # treat '-' as a normal char rather than a lua ke
 # enable https://github.com/junegunn/fzf
 source ~/.fzf.zsh
 # default command to use when input is tty
-export FZF_DEFAULT_COMMAND='fd --hidden --follow --type file'
+export FZF_DEFAULT_COMMAND='fd --hidden --no-ignore --follow --type file'
 # CTRL-T: paste the selected files and directories onto the command-line
-export FZF_CTRL_T_COMMAND='fd --hidden --follow --type file --type directory'
+export FZF_CTRL_T_COMMAND='fd --hidden --no-ignore --follow --type file --type directory'
 # ALT-C: cd into the selected directory
-export FZF_ALT_C_COMMAND='fd --hidden --follow --type directory'
+export FZF_ALT_C_COMMAND='fd --hidden --no-ignore --follow --type directory'
 # vim **<tab> runs _fzf_compgen_path()
 _fzf_compgen_path() {
-    fd --hidden --follow . "$1"
+    fd --hidden --no-ignore --follow . "$1"
 }
 # cd **<tab> runs _fzf_compgen_dir()
 _fzf_compgen_dir() {
-    fd --hidden --follow --type directory . "$1"
+    fd --hidden --no-ignore --follow --type directory . "$1"
 }
 # custom fuzzy completion(experimental) for j
 _fzf_complete_j() {
     _fzf_complete --reverse -- "$@" < <(
-    fd --hidden --follow --type directory
+    fd --hidden --no-ignore --follow --type directory
 )
 }
 # default options for all fzf command and key bindings
