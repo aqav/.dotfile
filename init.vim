@@ -169,6 +169,10 @@ let g:airline_section_b = "
             \"
 
 " ---- LeaderF ----
+
+" search ignore files and directories
+nmap <silent> <Leader>f :Leaderf file --no-ignore<CR>
+
 " I don't like these separators
 let g:Lf_StlSeparator ={
             \'left': '',
@@ -190,7 +194,8 @@ let g:Lf_PreviewResult = {
 " include hidden files and symbolic links into ripgrep
 let g:Lf_RgConfig = [
             \"--hidden",
-            \"--follow"
+            \"--follow",
+            \"--no-ignore"
             \]
 let g:Lf_UseVersionControlTool = 0              " always use better(e.g: ripgrep) tool to index the files rather than version control one
 
