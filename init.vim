@@ -54,6 +54,9 @@ Plug 'skywind3000/vim-terminal-help'
 " Java: :VimspectorInstall vscode-java-debug
 Plug 'puremourning/vimspector'
 
+" overide default text objects for seeking and add more
+Plug 'wellle/targets.vim'
+
 call plug#end()
 
 
@@ -307,6 +310,7 @@ let rooter_patterns = [
             \'pom.xml',
             \'.vimspector.json'
             \]
+let g:rooter_silent_chdir = 1    " stop echoing the project directory
 
 " ---- vim-autoformat ----
 autocmd BufWrite * :Autoformat    " format code upon saving file
@@ -418,3 +422,6 @@ function JavaStartDebug()
                 \)
 endfunction
 nmap <silent> <Leader><F5> :call JavaStartDebug()<CR>
+
+" ---- target.vim ----
+let g:targets_gracious = 0    " nobody really count when the num is too large
