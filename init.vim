@@ -342,6 +342,8 @@ autocmd BufWrite * :Autoformat    " format code upon saving file
 hi TermColor ctermbg=0 ctermfg=15
 autocmd TermOpen * setlocal winhighlight=Normal:TermColor
 
+let g:terminal_list = 0    " hide terminal buffer in buffer list
+
 " ---- netrw ----
 let g:netrw_banner = 0    " suppress the banner
 
