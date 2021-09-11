@@ -260,7 +260,8 @@ let g:coc_global_extensions = [
             \'coc-java',
             \'coc-java-debug',
             \'coc-snippets',
-            \'coc-git'
+            \'coc-git',
+            \'coc-pairs'
             \]
 
 " text objects of function and class provided by coc
