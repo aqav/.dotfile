@@ -116,7 +116,7 @@ autocmd BufReadPost *
             \ endif
 
 " make inactive window background become dark for intuition
-hi WinLeaveColor ctermbg=0
+highlight WinLeaveColor ctermbg=0
 autocmd WinEnter * setlocal winhighlight=Normal:Normal
 autocmd WinLeave * setlocal winhighlight=Normal:WinLeaveColor
 
@@ -341,10 +341,11 @@ autocmd BufWrite * :Autoformat    " format code upon saving file
 " tnoremap <A-q> <C-\><C-n>
 " tnoremap <A--> <C-\><C-n>"0pa
 
-" aware I'm in terminal
 " require setting blow the line which config colorscheme
-hi TermColor ctermfg=15
+" aware I'm in terminal
 " hi TermColor ctermbg=0 ctermfg=15
+" I don't like the foreground color in terminal, set it to white
+highlight TermColor ctermfg=15
 autocmd TermOpen * setlocal winhighlight=Normal:TermColor
 
 let g:terminal_list = 0    " hide terminal buffer in buffer list
