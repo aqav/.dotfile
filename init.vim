@@ -66,6 +66,9 @@ Plug 'puremourning/vimspector'
 " overide default text objects for seeking and add more
 Plug 'wellle/targets.vim'
 
+" simpler way to use some motions
+Plug 'easymotion/vim-easymotion'
+
 " run shell command in background
 Plug 'skywind3000/asyncrun.vim'
 
@@ -158,7 +161,6 @@ autocmd WinEnter * call OnWinEnter()
 autocmd WinLeave * call OnWinLeave()
 " it's wired
 autocmd TermEnter * setlocal winhighlight=Normal:TermEnterColor
-autocmd TermLeave * :echo "leave term"
 
 " ======== mapping ========
 "
