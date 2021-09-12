@@ -363,7 +363,7 @@ let g:autoformat_autoindent = 0    " disable fallback to vim indent gg=G
 " hi TermColor ctermbg=0 ctermfg=15
 " I don't like the foreground color in terminal, set it to white
 highlight TermColor ctermfg=15
-autocmd TermOpen * setlocal winhighlight=Normal:TermColor
+autocmd TermEnter * setlocal winhighlight=Normal:TermColor
 
 let g:terminal_list = 0    " hide terminal buffer in buffer list
 
