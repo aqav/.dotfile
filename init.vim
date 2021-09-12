@@ -282,7 +282,7 @@ nmap <silent> gr <Plug>(coc-references)
 
 " extend K to show documentation
 function! s:show_documentation()
-    if(index(['vim','help'], &filetype) >= 0)
+    if (index(['vim','help'], &filetype) >= 0)
         execute 'h '.expand('<cword>')
     elseif (coc#rpc#ready())
         call CocActionAsync('doHover')
@@ -362,9 +362,15 @@ let rooter_patterns = [
 let g:rooter_silent_chdir = 1    " stop echoing the project directory
 
 " ---- vim-autoformat ----
-autocmd BufWrite * :Autoformat     " format code upon saving file
 
-let g:autoformat_autoindent = 0    " disable fallback to vim indent gg=G
+" don't format some filetypes if no suitable program
+function! Autoformat()
+    if &filetype =~ 'dosini'
+        return
+    endif
+    execute 'Autoformat'
+endfunction
+autocmd BufWrite * call Autoformat()
 
 " ---- vim-terminal-help ----
 "
