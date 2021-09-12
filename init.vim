@@ -449,8 +449,9 @@ nmap <silent> <Leader><F5> :call JavaStartDebug()<CR>
 let g:targets_gracious = 0    " don't be too serious when the num is too large
 
 " ---- asynctasks.vim ----
-let g:asyncrun_open = 10
+let g:asyncrun_open = 10    " set the height of quickfix window
 
+" key mappings for asynctasks
 noremap <silent><F5> :AsyncTask file-run<CR>
 noremap <silent><F6> :AsyncTask file-build<CR>
 noremap <silent><F7> :AsyncTask project-run<CR>
