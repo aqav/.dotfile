@@ -74,6 +74,8 @@ Plug 'skywind3000/asyncrun.vim'
 
 " imitating vscode's task system
 "
+" require Plug 'skywind3000/asyncrun.vim'
+"
 " 1. # rm .config/nvim/tasks.ini
 " 2. # ln -s ~/.dotfile/tasks.ini ~/.config/nvim/tasks.ini
 Plug 'skywind3000/asynctasks.vim'
