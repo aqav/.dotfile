@@ -134,9 +134,31 @@ autocmd BufReadPost *
             \ endif
 
 " make inactive window background become dark for intuition
+" make the foreground color of terminal window white for intuition
+"
+" setting 'winhighlight' require blow the line which config colorscheme
 highlight WinLeaveColor ctermbg=0
-autocmd WinEnter * setlocal winhighlight=Normal:Normal
-autocmd WinLeave * setlocal winhighlight=Normal:WinLeaveColor
+highlight TermLeaveColor ctermbg=0 ctermfg=15
+highlight TermEnterColor ctermfg=15
+function! OnWinEnter()
+    if &buftype ==# 'terminal'
+        setlocal winhighlight=Normal:TermEnterColor
+    else
+        setlocal winhighlight=Normal:Normal
+    endif
+endfunction
+function! OnWinLeave()
+    if &buftype ==# 'terminal'
+        setlocal winhighlight=Normal:TermLeaveColor
+    else
+        setlocal winhighlight=Normal:WinLeaveColor
+    endif
+endfunction
+autocmd WinEnter * call OnWinEnter()
+autocmd WinLeave * call OnWinLeave()
+" it's wired
+autocmd TermEnter * setlocal winhighlight=Normal:TermEnterColor
+autocmd TermLeave * :echo "leave term"
 
 " ======== mapping ========
 "
@@ -360,13 +382,6 @@ let g:autoformat_autoindent = 0    " disable fallback to vim indent gg=G
 " tnoremap <A-N> <C-\><C-n><C-w>p
 " tnoremap <A-q> <C-\><C-n>
 " tnoremap <A--> <C-\><C-n>"0pa
-
-" require setting blow the line which config colorscheme
-" aware I'm in terminal
-" hi TermColor ctermbg=0 ctermfg=15
-" I don't like the foreground color in terminal, set it to white
-highlight TermColor ctermfg=15
-autocmd TermEnter * setlocal winhighlight=Normal:TermColor
 
 let g:terminal_list = 0    " hide terminal buffer in buffer list
 
