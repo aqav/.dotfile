@@ -33,6 +33,8 @@ Plug 'tpope/vim-commentary'
 
 " plugin that format code by external programs
 "
+" # python3 -m pip install pynvim
+"
 " Java: Artistic Style(http://astyle.sourceforge.net/)
 " 1. download astyle_<version>_linux.tar.gz(at least version 2.0.5 or higher)
 " 2. decompress astyle_<version>_linux.tar.gz
@@ -51,11 +53,24 @@ Plug 'skywind3000/vim-terminal-help'
 
 " generic client for Debug Adapters
 "
+" 1. # cd ~/.local/share/nvim/plugged/vimspector
+" 2. # rm -r configurations
+" 3. # ln -s ~/.dotfile/.vimspector configurations
+"
 " Java: :VimspectorInstall vscode-java-debug
 Plug 'puremourning/vimspector'
 
 " overide default text objects for seeking and add more
 Plug 'wellle/targets.vim'
+
+" run shell command in background
+Plug 'skywind3000/asyncrun.vim'
+
+" imitating vscode's task system
+"
+" 1. # rm .config/nvim/tasks.ini
+" 2. # ln -s ~/.dotfile/tasks.ini ~/.config/nvim/tasks.ini
+Plug 'skywind3000/asynctasks.vim'
 
 call plug#end()
 
@@ -318,7 +333,9 @@ let rooter_patterns = [
 let g:rooter_silent_chdir = 1    " stop echoing the project directory
 
 " ---- vim-autoformat ----
-autocmd BufWrite * :Autoformat    " format code upon saving file
+autocmd BufWrite * :Autoformat     " format code upon saving file
+
+let g:autoformat_autoindent = 0    " disable fallback to vim indent gg=G
 
 " ---- vim-terminal-help ----
 "
@@ -354,10 +371,6 @@ let g:terminal_list = 0    " hide terminal buffer in buffer list
 let g:netrw_banner = 0    " suppress the banner
 
 " ---- vimspector ----
-"
-" 1. # cd ~/.local/share/nvim/plugged/vimspector
-" 2. # rm -r configurations
-" 3. # ln -s ~/.dotfile/.vimspector configurations
 
 " the value will be used when running :VimspectorInstall with no argus and :VimspectorUpdate
 let g:vimspector_install_gadgets = [
@@ -433,4 +446,12 @@ endfunction
 nmap <silent> <Leader><F5> :call JavaStartDebug()<CR>
 
 " ---- target.vim ----
-let g:targets_gracious = 0    " nobody really count when the num is too large
+let g:targets_gracious = 0    " don't be too serious when the num is too large
+
+" ---- asynctasks.vim ----
+let g:asyncrun_open = 10
+
+noremap <silent><F5> :AsyncTask file-run<CR>
+noremap <silent><F6> :AsyncTask file-build<CR>
+noremap <silent><F7> :AsyncTask project-run<CR>
+noremap <silent><F8> :AsyncTask project-build<CR>
