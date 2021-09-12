@@ -23,6 +23,9 @@ Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
 "
 " 1. # sudo pacman -S nodejs
 " 2. # sudo pacman -S npm
+"
+" 1. # rm ~/.config/nvim/coc-settings.json
+" 2. # ln -s ~/.dotfile/coc-settings.json ~/.config/nvim/coc-settings.json
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " tool for change the directory to the project root with a consistent approach

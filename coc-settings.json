@@ -1,3 +1,4 @@
 {
+    "coc.source.around.firstMatch": false,
     "git.addGBlameToVirtualText": true
 }
