@@ -1,4 +1,5 @@
 {
+    "java.import.maven.enabled": false,
     "coc.source.around.firstMatch": false,
     "git.addGBlameToVirtualText": true
 }
