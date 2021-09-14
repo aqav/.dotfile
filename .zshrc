@@ -58,6 +58,7 @@ eval "$(lua ~/.zsh/z.lua/z.lua  --init zsh)"
 export _ZL_ADD_ONCE=1          # update .zlua only if $PWD has changed
 export _ZL_ADD_MATCH_MODE=1    # enable enhanced matching
 export _ZL_HYPHEN=1            # treat '-' as a normal char rather than a lua keyword
+# specify the project root for '# z -b'
 export _ZL_ROOT_MARKERS="\
     .git,\
     pom.xml,\
