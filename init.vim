@@ -227,8 +227,21 @@ let g:airline_section_b = "
 
 " ---- LeaderF ----
 
-" search ignore files and directories
+" key mappings provided by LeaderF
 nmap <silent> <Leader>f :Leaderf file --no-ignore<CR>
+nmap <silent> <Leader>m :Leaderf mru<CR>
+
+" specify the files and directories should be ignored
+let g:Lf_WildIgnore = {
+            \ 'dir': ['.git', 'target'],
+            \ 'file': []
+            \}
+
+" specify the files ignored in MRU files
+let g:Lf_MruWildIgnore = {
+            \ 'dir': ['.git', 'target'],
+            \ 'file': []
+            \}
 
 " I don't like these separators
 let g:Lf_StlSeparator ={
