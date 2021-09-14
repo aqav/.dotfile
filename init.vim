@@ -46,6 +46,9 @@ Plug 'tpope/vim-commentary'
 "
 " Json: JS Beautifier(https://github.com/beautify-web/js-beautify)
 " 1. # sudo pip install jsbeautifier
+"
+" XML: tidy
+" 1. # sudo pacman -S tidy
 Plug 'vim-autoformat/vim-autoformat'
 
 " make vim internal terminal better
@@ -74,7 +77,8 @@ Plug 'skywind3000/asyncrun.vim'
 
 " imitating vscode's task system
 "
-" require Plug 'skywind3000/asyncrun.vim'
+" require
+" 1. Plug 'skywind3000/asyncrun.vim'
 "
 " 1. # rm .config/nvim/tasks.ini
 " 2. # ln -s ~/.dotfile/tasks.ini ~/.config/nvim/tasks.ini
@@ -210,6 +214,8 @@ cnoremap <C-d> <Del>
 
 
 " ======== plugin config ========
+
+let g:window_height = 20
 
 " ---- vim-airlinea ----
 let g:airline#extensions#tabline#enabled = 1                  " display all buffers when there're only one tab
@@ -357,7 +363,8 @@ nmap <leader>qf <Plug>(coc-fix-current)
 let rooter_patterns = [
             \'.git',
             \'pom.xml',
-            \'.vimspector.json'
+            \'.vimspector.json',
+            \'.root'
             \]
 let g:rooter_silent_chdir = 1    " stop echoing the project directory
 
@@ -393,7 +400,8 @@ autocmd BufWrite * call Autoformat()
 " tnoremap <A-q> <C-\><C-n>
 " tnoremap <A--> <C-\><C-n>"0pa
 
-let g:terminal_list = 0    " hide terminal buffer in buffer list
+let g:terminal_list = 0                    " hide terminal buffer in buffer list
+let g:terminal_height = g:window_height    " terminal height
 
 " ---- netrw ----
 let g:netrw_banner = 0    " suppress the banner
@@ -477,10 +485,8 @@ nmap <silent> <Leader><F5> :call JavaStartDebug()<CR>
 let g:targets_gracious = 0    " don't be too serious when the num is too large
 
 " ---- asynctasks.vim ----
-let g:asyncrun_open = 10    " set the height of quickfix window
 
 " key mappings for asynctasks
-noremap <silent><F5> :AsyncTask file-run<CR>
+noremap <silent><F5> :AsyncTask run<CR>
 noremap <silent><F6> :AsyncTask file-build<CR>
-noremap <silent><F7> :AsyncTask project-run<CR>
 noremap <silent><F8> :AsyncTask project-build<CR>
