@@ -499,9 +499,9 @@ let g:targets_gracious = 0    " don't be too serious when the num is too large
 
 " ---- asynctasks.vim ----
 
+let g:asyncrun_open = g:window_height
+
 " key mappings for asynctasks
 noremap <silent><F5> :AsyncTask run<CR>
 noremap <silent><F6> :AsyncTask file-build<CR>
 noremap <silent><F8> :AsyncTask project-build<CR>
-
-let g:asyncrun_open = 20
