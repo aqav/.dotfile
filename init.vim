@@ -17,7 +17,7 @@ Plug 'vim-airline/vim-airline'
 " 3. # python3 -m pip install --user --upgrade pynvim
 " 4. :LeaderfInstallCExtension(for performance)
 " 5. # sudo pacman -S ripgrep(for better index)
-Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
+Plug 'Yggdroot/LeaderF', { 'on': 'Leaderf' }
 
 " intellisense engine for Vim 8 & NeoVim
 "
@@ -26,7 +26,7 @@ Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
 "
 " 1. # rm ~/.config/nvim/coc-settings.json
 " 2. # ln -s ~/.dotfile/coc-settings.json ~/.config/nvim/coc-settings.json
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 
 " tool for change the directory to the project root with a consistent approach
 Plug 'airblade/vim-rooter'
@@ -64,7 +64,7 @@ Plug 'skywind3000/vim-terminal-help'
 " 3. # ln -s ~/.dotfile/.vimspector configurations
 "
 " Java: :VimspectorInstall vscode-java-debug
-Plug 'puremourning/vimspector'
+Plug 'puremourning/vimspector', { 'for': 'java' }
 
 " overide default text objects for seeking and add more
 Plug 'wellle/targets.vim'
@@ -73,7 +73,7 @@ Plug 'wellle/targets.vim'
 Plug 'easymotion/vim-easymotion'
 
 " run shell command in background
-Plug 'skywind3000/asyncrun.vim'
+Plug 'skywind3000/asyncrun.vim', { 'for': 'java' }
 
 " imitating vscode's task system
 "
@@ -82,7 +82,7 @@ Plug 'skywind3000/asyncrun.vim'
 "
 " 1. # rm .config/nvim/tasks.ini
 " 2. # ln -s ~/.dotfile/tasks.ini ~/.config/nvim/tasks.ini
-Plug 'skywind3000/asynctasks.vim'
+Plug 'skywind3000/asynctasks.vim', { 'for': 'java' }
 
 " normal mode key mappings for commonly usage
 Plug 'tpope/vim-unimpaired'
