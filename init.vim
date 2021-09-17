@@ -84,11 +84,14 @@ Plug 'skywind3000/asyncrun.vim'
 " 2. # ln -s ~/.dotfile/tasks.ini ~/.config/nvim/tasks.ini
 Plug 'skywind3000/asynctasks.vim'
 
-" simply normal mode key mappings for commonly usage
+" normal mode key mappings for commonly usage
 Plug 'tpope/vim-unimpaired'
 
-" provide mappings to easily operate surroundingsin pairs
+" key mappings to operate surroundings in pairs
 Plug 'tpope/vim-surround'
+
+" vinegar split explorer
+Plug 'justinmk/vim-dirvish'
 
 call plug#end()
 
