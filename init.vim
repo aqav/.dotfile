@@ -341,7 +341,8 @@ let g:coc_global_extensions = [
             \'coc-snippets',
             \'coc-git',
             \'coc-pairs',
-            \'coc-vimlsp'
+            \'coc-vimlsp',
+            \'coc-yank'
             \]
 
 " text objects of function and class provided by coc
@@ -375,14 +376,17 @@ nmap <silent> [d <Plug>(coc-diagnostic-prev)
 nmap <silent> ]d <Plug>(coc-diagnostic-next)
 
 " symbol rename
-nmap <leader>rn <Plug>(coc-rename)
+nmap <Leader>rn <Plug>(coc-rename)
 
 " key mappings for code action
-xmap <leader>a <Plug>(coc-codeaction-selected)
-nmap <leader>a <Plug>(coc-codeaction-selected)
-nmap <leader>ac <Plug>(coc-codeaction-line)
-nmap <leader>af <Plug>(coc-codeaction)
-nmap <leader>qf <Plug>(coc-fix-current)
+xmap <Leader>a <Plug>(coc-codeaction-selected)
+nmap <Leader>a <Plug>(coc-codeaction-selected)
+nmap <Leader>ac <Plug>(coc-codeaction-line)
+nmap <Leader>af <Plug>(coc-codeaction)
+nmap <Leader>qf <Plug>(coc-fix-current)
+
+" key mappings for CocList
+nnoremap <silent> <Space>y  :<C-u>CocList -A --normal yank<cr>
 
 " ---- vim-rooter ----
 " specify the root has a certain file or directory
