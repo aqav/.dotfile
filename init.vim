@@ -93,6 +93,9 @@ Plug 'tpope/vim-surround'
 " vinegar split explorer
 Plug 'justinmk/vim-dirvish'
 
+" repeat the last map as a whole
+Plug 'tpope/vim-repeat'
+
 call plug#end()
 
 
@@ -507,7 +510,6 @@ nmap <silent> <Leader><F5> :call JavaStartDebug()<CR>
 let g:targets_gracious = 0    " don't be too serious when the num is too large
 
 " ---- asynctasks.vim ----
-
 let g:asyncrun_open = g:window_height
 
 " key mappings for asynctasks
