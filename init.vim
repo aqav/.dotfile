@@ -405,7 +405,7 @@ let g:rooter_silent_chdir = 1    " stop echoing the project directory
 
 " don't format some filetypes if no suitable program
 function! Autoformat()
-    if &filetype =~ 'dosini'
+    if &filetype =~ 'dosini\|autohotkey'
         return
     endif
     execute 'Autoformat'
