@@ -287,7 +287,7 @@ let g:Lf_WindowPosition = 'popup'               " specify the position of the wi
 let g:Lf_PopupPreviewPosition = 'bottom'        " specify where to locate the preview window when in popup mode
 let g:Lf_StlColorscheme = 'gruvbox_default'     " specify the colorscheme of statusline
 
-" ---- coc.nvm ----
+" ---- coc.nvim ----
 " use <Tab> for trigger completion and navigate to the next
 function! s:check_back_space() abort
     let col = col('.') - 1
