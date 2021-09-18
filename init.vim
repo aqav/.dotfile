@@ -224,6 +224,8 @@ cnoremap <C-a> <Home>
 cnoremap <C-e> <End>
 cnoremap <C-d> <Del>
 
+" I always make this mistake
+nnoremap q: :q<CR>
 
 " ======== plugin config ========
 
@@ -342,7 +344,8 @@ let g:coc_global_extensions = [
             \'coc-git',
             \'coc-pairs',
             \'coc-vimlsp',
-            \'coc-yank'
+            \'coc-yank',
+            \'coc-lists'
             \]
 
 " text objects of function and class provided by coc
@@ -386,7 +389,7 @@ nmap <Leader>af <Plug>(coc-codeaction)
 nmap <Leader>qf <Plug>(coc-fix-current)
 
 " key mappings for CocList
-nnoremap <silent> <Space>y  :<C-u>CocList -A --normal yank<cr>
+nnoremap <silent><nowait> <Space>y :<C-u>CocList -A --normal yank<cr>
 
 " ---- vim-rooter ----
 " specify the root has a certain file or directory
