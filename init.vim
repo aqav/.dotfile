@@ -244,6 +244,7 @@ let g:airline_section_b = "
 " key mappings provided by LeaderF
 nmap <silent> <Leader>f :Leaderf file --no-ignore<CR>
 nmap <silent> <Leader>m :Leaderf mru<CR>
+nmap <silent> <Leader>r :Leaderf rg<CR>
 
 " specify the files and directories should be ignored
 let g:Lf_WildIgnore = {
@@ -377,9 +378,6 @@ nmap ]c <Plug>(coc-git-nextconflict)
 " key mappings for diagnostic
 nmap <silent> [d <Plug>(coc-diagnostic-prev)
 nmap <silent> ]d <Plug>(coc-diagnostic-next)
-
-" symbol rename
-nmap <Leader>rn <Plug>(coc-rename)
 
 " key mappings for code action
 xmap <Leader>a <Plug>(coc-codeaction-selected)
