@@ -96,6 +96,9 @@ Plug 'justinmk/vim-dirvish'
 " repeat the last map as a whole
 Plug 'tpope/vim-repeat'
 
+" take care of the tags file
+Plug 'ludovicchabant/vim-gutentags'
+
 call plug#end()
 
 
@@ -230,6 +233,12 @@ nnoremap q: :q<CR>
 " ======== plugin config ========
 
 let g:window_height = 20
+let g:project_root = [
+            \'.git',
+            \'pom.xml',
+            \'.vimspector.json',
+            \'.root'
+            \]
 
 " ---- vim-airlinea ----
 let g:airline#extensions#tabline#enabled = 1                  " display all buffers when there're only one tab
@@ -390,14 +399,8 @@ nmap <Leader>qf <Plug>(coc-fix-current)
 nnoremap <silent><nowait> <Space>y :<C-u>CocList -A --normal yank<cr>
 
 " ---- vim-rooter ----
-" specify the root has a certain file or directory
-let rooter_patterns = [
-            \'.git',
-            \'pom.xml',
-            \'.vimspector.json',
-            \'.root'
-            \]
-let g:rooter_silent_chdir = 1    " stop echoing the project directory
+let rooter_patterns = g:project_root    " specify the root has a certain file or directory
+let g:rooter_silent_chdir = 1           " stop echoing the project directory
 
 " ---- vim-autoformat ----
 
@@ -522,3 +525,12 @@ let g:asyncrun_open = g:window_height
 noremap <silent><F5> :AsyncTask run<CR>
 noremap <silent><F6> :AsyncTask file-build<CR>
 noremap <silent><F8> :AsyncTask project-build<CR>
+
+" ---- vim-gutentags ----
+let g:gutentags_project_root = g:project_root    " specify the root, vim-gutentags require the root must be config
+
+let s:vim_tags = expand('~/.cache/tags')
+if !isdirectory(s:vim_tags)
+    silent! call mkdir(s:vim_tags, 'p')
+endif
+let g:gutentags_cache_dir = s:vim_tags           " specify the directory to store tags files
