@@ -254,6 +254,8 @@ let g:airline_section_b = "
 nmap <silent> <Leader>f :Leaderf file --no-ignore<CR>
 nmap <silent> <Leader>m :Leaderf mru<CR>
 nmap <silent> <Leader>r :Leaderf rg<CR>
+nmap <silent> <Leader>c :Leaderf function<CR>
+nmap <silent> <Leader>t :Leaderf tag<CR>
 
 " specify the files and directories should be ignored
 let g:Lf_WildIgnore = {
