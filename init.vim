@@ -97,6 +97,8 @@ Plug 'justinmk/vim-dirvish'
 Plug 'tpope/vim-repeat'
 
 " take care of the tags file
+"
+" 1. # sudo pacman -S ctags(Universal Ctags)
 Plug 'ludovicchabant/vim-gutentags'
 
 call plug#end()
@@ -253,9 +255,11 @@ let g:airline_section_b = "
 " key mappings provided by LeaderF
 nmap <silent> <Leader>f :Leaderf file --no-ignore<CR>
 nmap <silent> <Leader>m :Leaderf mru<CR>
+nmap <silent> <Leader>b :Leaderf buffer<CR>
 nmap <silent> <Leader>r :Leaderf rg<CR>
 nmap <silent> <Leader>c :Leaderf function<CR>
 nmap <silent> <Leader>t :Leaderf tag<CR>
+nmap <silent> <Leader>u :Leaderf bufTag<CR>
 
 " specify the files and directories should be ignored
 let g:Lf_WildIgnore = {
