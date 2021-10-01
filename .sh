@@ -51,7 +51,7 @@ alias ls='ls --color=auto'
 alias ll='ls --color=auto -lh'
 alias lla='ls --color=auto -alh'
 
-alias cls='clear'
+alias cls='tput reset'
 
 alias v='nvim'
 alias vi='nvim'
