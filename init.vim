@@ -49,6 +49,9 @@ Plug 'tpope/vim-commentary'
 "
 " XML: tidy
 " 1. # sudo pacman -S tidy
+"
+" GO: gofmt
+" 1. # sudo pacman -S go
 Plug 'vim-autoformat/vim-autoformat'
 
 " make vim internal terminal better
@@ -352,6 +355,9 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 "
 " coc-git
 " 1. # sudo pacman -S git
+"
+" coc-go
+" 1. # sudo pacman -S go
 let g:coc_global_extensions = [
             \'coc-json',
             \'coc-java',
@@ -361,7 +367,8 @@ let g:coc_global_extensions = [
             \'coc-pairs',
             \'coc-vimlsp',
             \'coc-yank',
-            \'coc-lists'
+            \'coc-lists',
+            \'coc-go'
             \]
 
 " text objects of function and class provided by coc
@@ -414,7 +421,8 @@ let g:rooter_silent_chdir = 1           " stop echoing the project directory
 autocmd BufWrite init.vim,
             \*.java,
             \*.json,
-            \*.xml
+            \*.xml,
+            \*.go
             \ :Autoformat
 
 " ---- vim-terminal-help ----
