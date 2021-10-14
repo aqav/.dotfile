@@ -410,14 +410,12 @@ let g:rooter_silent_chdir = 1           " stop echoing the project directory
 
 " ---- vim-autoformat ----
 
-" don't format some filetypes if no suitable program
-function! Autoformat()
-    if &filetype =~ 'dosini\|autohotkey'
-        return
-    endif
-    execute 'Autoformat'
-endfunction
-autocmd BufWrite * call Autoformat()
+" format the specify filetypes
+autocmd BufWrite init.vim,
+            \*.java,
+            \*.json,
+            \*.xml
+            \ :Autoformat
 
 " ---- vim-terminal-help ----
 "
