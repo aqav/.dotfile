@@ -56,3 +56,9 @@ alias cls='tput reset'
 alias v='nvim'
 alias vi='nvim'
 alias vim='nvim'
+
+function cdls() {
+    cd "${1}";
+    ls --color=auto -alh;
+}
+alias cd='cdls'
