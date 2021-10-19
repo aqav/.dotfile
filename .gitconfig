@@ -1,0 +1,11 @@
+[user]
+    name = aqav
+    email = 66734646+aqav@users.noreply.github.com
+[init]
+    defaultBranch = master
+[help]
+	autocorrect = 1
+[alias]
+	cm = commit -m
+	st = status -sb
+	p = push
