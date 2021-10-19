@@ -62,3 +62,9 @@ function cdls() {
     ls --color=auto -alh;
 }
 alias cd='cdls'
+
+function rmls() {
+    rm -r "${1}";
+    ls --color=auto -alh;
+}
+alias rm='rmls'
