@@ -4,8 +4,8 @@
 [init]
     defaultBranch = master
 [help]
-	autocorrect = 1
+    autocorrect = 1
 [alias]
-	cm = commit -m
-	st = status -sb
-	p = push
+    cm = commit -m
+    st = status -sb
+    p = push
