@@ -37,15 +37,6 @@ function fish_pwd() {
     echo "${elements[*]}"
 }
 
-# use j as cd and then z if cd failed
-function j() {
-    if [[ "$argv[1]" == "-"* ]]; then
-        z "$@"
-    else
-        cd "$@" 2> /dev/null || z "$@"
-    fi
-}
-
 # alias
 alias ls='ls --color=auto'
 alias ll='ls --color=auto -lh'
@@ -53,7 +44,6 @@ alias lla='ls --color=auto -alh'
 
 alias cls='tput reset'
 
-alias v='nvim'
 alias vi='nvim'
 alias vim='nvim'
 
