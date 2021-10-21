@@ -1,0 +1,4 @@
+# ln -s ~/.dotfile/config ~/.config/bat/config
+
+--theme="default"       # Specify desired highlighting theme
+--italic-text=always    # Enable this to use italic text on the terminal
