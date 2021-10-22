@@ -58,3 +58,5 @@ function rmls() {
     ls --color=auto -alh;
 }
 alias rm='rmls'
+
+alias cat='bat'
