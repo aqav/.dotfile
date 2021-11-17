@@ -47,16 +47,16 @@ alias cls='tput reset'
 alias vi='nvim'
 alias vim='nvim'
 
-function cdls() {
-    cd "${1}";
-    ls --color=auto -alh;
-}
-alias cd='cdls'
+# function cdls() {
+#     cd "${1}";
+#     ls --color=auto -alh;
+# }
+# alias cd='cdls'
 
-function rmls() {
-    rm -r "${1}";
-    ls --color=auto -alh;
-}
-alias rm='rmls'
+# function rmls() {
+#     rm -r "${1}";
+#     ls --color=auto -alh;
+# }
+# alias rm='rmls'
 
 alias cat='bat'
