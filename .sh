@@ -41,22 +41,11 @@ function fish_pwd() {
 alias ls='ls --color=auto'
 alias ll='ls --color=auto -lh'
 alias lla='ls --color=auto -alh'
-
 alias cls='tput reset'
 
 alias vi='nvim'
 alias vim='nvim'
 
-# function cdls() {
-#     cd "${1}";
-#     ls --color=auto -alh;
-# }
-# alias cd='cdls'
-
-# function rmls() {
-#     rm -r "${1}";
-#     ls --color=auto -alh;
-# }
-# alias rm='rmls'
+alias zb='z -b'
 
 alias cat='bat'
