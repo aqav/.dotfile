@@ -104,6 +104,10 @@ Plug 'tpope/vim-repeat'
 " 1. # sudo pacman -S ctags(Universal Ctags)
 Plug 'ludovicchabant/vim-gutentags'
 
+" read or write with sudo
+" workround of Neovim issue https://github.com/neovim/neovim/issues/1716
+Plug 'lambdalisue/suda.vim'
+
 call plug#end()
 
 
@@ -546,3 +550,6 @@ if !isdirectory(s:vim_tags)
     silent! call mkdir(s:vim_tags, 'p')
 endif
 let g:gutentags_cache_dir = s:vim_tags           " specify the directory to store tags files
+
+" --- suda.vim ---
+let g:suda_smart_edit = 1    " automatically switch buffer to suda://...
