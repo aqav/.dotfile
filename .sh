@@ -43,6 +43,11 @@ alias ll='ls --color=auto -lh'
 alias lla='ls --color=auto -alh'
 alias cls='tput reset'
 
+cdls() {
+    cd "$@" && lla;
+}
+alias cd='cdls'
+
 alias vi='nvim'
 alias vim='nvim'
 
