@@ -48,9 +48,13 @@ cdls() {
 }
 alias cd='cdls'
 
+zls() {
+    z "$@" && lla;
+}
+alias z='zls'
+alias zb='z -b'
+
 alias vi='nvim'
 alias vim='nvim'
-
-alias zb='z -b'
 
 alias cat='bat'

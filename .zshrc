@@ -3,8 +3,6 @@
 # -- common ---
 [[ $- != *i* ]] && return    # don't do anything if not running interactively
 
-source ~/.dotfile/.sh        # source my common shell configuration
-
 unsetopt beep                # no annoyed beep sound
 
 HISTFILE=~/.zsh_history      # set zsh history file
@@ -65,6 +63,8 @@ export _ZL_ROOT_MARKERS="\
     .root,\
     .vimspector.json\
     "
+
+source ~/.dotfile/.sh        # source my common shell configuration
 
 # enable https://github.com/junegunn/fzf
 source ~/.fzf.zsh
