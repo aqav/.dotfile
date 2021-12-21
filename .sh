@@ -53,6 +53,7 @@ zls() {
 }
 alias z='zls'
 alias zb='z -b'
+alias zf='z -I'
 
 alias vi='nvim'
 alias vim='nvim'
