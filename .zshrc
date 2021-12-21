@@ -57,12 +57,7 @@ export _ZL_ADD_ONCE=1          # update .zlua only if $PWD has changed
 export _ZL_ADD_MATCH_MODE=1    # enable enhanced matching
 export _ZL_HYPHEN=1            # treat '-' as a normal char rather than a lua keyword
 # specify the project root for '# z -b'
-export _ZL_ROOT_MARKERS="\
-    .git,\
-    pom.xml,\
-    .root,\
-    .vimspector.json\
-    "
+export _ZL_ROOT_MARKERS=".git,pom.xml,.root,vimspector.json"
 
 source ~/.dotfile/.sh        # source my common shell configuration
 
