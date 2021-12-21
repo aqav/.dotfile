@@ -49,18 +49,6 @@ bindkey -M menuselect 'j' vi-down-line-or-history
 
 # --- plugins ---
 
-# enable https://github.com/skywind3000/z.lua
-# require lua:
-# # sudo pacman -S lua
-eval "$(lua ~/.zsh/z.lua/z.lua  --init zsh)"
-export _ZL_ADD_ONCE=1          # update .zlua only if $PWD has changed
-export _ZL_ADD_MATCH_MODE=1    # enable enhanced matching
-export _ZL_HYPHEN=1            # treat '-' as a normal char rather than a lua keyword
-# specify the project root for '# z -b'
-export _ZL_ROOT_MARKERS=".git,pom.xml,.root,vimspector.json"
-
-source ~/.dotfile/.sh        # source my common shell configuration
-
 # enable https://github.com/junegunn/fzf
 source ~/.fzf.zsh
 # default command to use when input is tty
@@ -85,6 +73,18 @@ _fzf_complete_j() {
 }
 # default options for all fzf command and key bindings
 export FZF_DEFAULT_OPTS='--layout=reverse --info=inline --height=50% --multi'
+
+# enable https://github.com/skywind3000/z.lua
+# require lua:
+# # sudo pacman -S lua
+eval "$(lua ~/.zsh/z.lua/z.lua  --init zsh)"
+export _ZL_ADD_ONCE=1          # update .zlua only if $PWD has changed
+export _ZL_ADD_MATCH_MODE=1    # enable enhanced matching
+export _ZL_HYPHEN=1            # treat '-' as a normal char rather than a lua keyword
+# specify the project root for '# z -b'
+export _ZL_ROOT_MARKERS=".git,pom.xml,.root,vimspector.json"
+
+source ~/.dotfile/.sh        # source my common shell configuration
 
 # enable https://github.com/zsh-users/zsh-autosuggestions
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
