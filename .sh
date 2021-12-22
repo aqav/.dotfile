@@ -43,15 +43,28 @@ alias ll='ls --color=auto -lh'
 alias lla='ls --color=auto -alh'
 alias cls='tput reset'
 
+# function chpwd() {
+#     if [[ "$PWD" != "$OLDPWD" ]]; then
+#         lla;
+#     fi
+# }
+
 cdls() {
-    cd "$@" && lla;
+    cd "$@";
+    if [[ "$PWD" != "$OLDPWD" ]]; then
+        lla;
+    fi
 }
 alias cd='cdls'
 
 zls() {
-    z "$@" && lla;
+    z "$@";
+    if [[ "$PWD" != "$OLDPWD" ]]; then
+        lla;
+    fi
 }
 alias z='zls'
+
 alias zb='z -b'
 alias zf='z -I'
 
