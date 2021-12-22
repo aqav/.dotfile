@@ -65,6 +65,12 @@ zls() {
 }
 alias z='zls'
 
+rmls() {
+    rm "$@";
+    lla;
+}
+alias rm='rmls'
+
 alias zb='z -b'
 alias zf='z -I'
 
