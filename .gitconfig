@@ -10,3 +10,5 @@
     cm = commit -m
     st = status -sb
     p = push
+[credential]
+	helper = store
