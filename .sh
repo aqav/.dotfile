@@ -37,6 +37,9 @@ function fish_pwd() {
     echo "${elements[*]}"
 }
 
+# X11
+export DISPLAY=`cat /etc/resolv.conf | grep nameserver | awk '{print $2}'`:0
+
 # alias
 alias ls='ls --color=auto'
 alias ll='ls --color=auto -lh'
