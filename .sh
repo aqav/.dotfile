@@ -44,6 +44,8 @@ export DISPLAY=`cat /etc/resolv.conf | grep nameserver | awk '{print $2}'`:0
 alias ls='ls --color=auto'
 alias ll='ls --color=auto -lh'
 alias lla='ls --color=auto -alh'
+alias llat='ls --color=auto -alht'
+
 alias cls='tput reset'
 
 # function chpwd() {
