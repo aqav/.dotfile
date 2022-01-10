@@ -1,0 +1,16 @@
+" ln -s ~/.dotfile/.ideavimrc ~/.ideavimrc
+set scrolloff=8
+set incsearch
+
+map \c <Action>(FileStructurePopup)
+map \r <Action>(FindInPath)
+map \f <Action>(SearchEverywhere)
+map \m <Action>(RecentFiles)
+
+map gd <Action>(GotoDeclaration)
+map gi <Action>(GotoImplementation)
+map gr <Action>(FindUsages)
+map gy <Action>(GotoTypeDeclaration)
+
+map <C-o> <Action>(Back)
+map <C-i> <Action>(Forward)
