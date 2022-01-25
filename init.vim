@@ -104,6 +104,9 @@ Plug 'tpope/vim-repeat'
 " 1. # sudo pacman -S ctags(Universal Ctags)
 Plug 'ludovicchabant/vim-gutentags'
 
+" Hex editing in Vim
+Plug 'fidian/hexmode'
+
 call plug#end()
 
 
@@ -546,3 +549,6 @@ if !isdirectory(s:vim_tags)
     silent! call mkdir(s:vim_tags, 'p')
 endif
 let g:gutentags_cache_dir = s:vim_tags           " specify the directory to store tags files
+
+" ---- Hexmode ----
+let g:hexmode_patterns = '*.class'    " automatically open specific file in hex mode
