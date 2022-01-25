@@ -105,6 +105,8 @@ Plug 'tpope/vim-repeat'
 Plug 'ludovicchabant/vim-gutentags'
 
 " Hex editing in Vim
+"
+" 1. # sudo paru -S xxd-standalone
 Plug 'fidian/hexmode'
 
 call plug#end()
