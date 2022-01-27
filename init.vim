@@ -94,6 +94,8 @@ Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-surround'
 
 " vinegar split explorer
+"
+" ref: http://vimcasts.org/blog/2013/01/oil-and-vinegar-split-windows-and-project-drawer/
 Plug 'justinmk/vim-dirvish'
 
 " repeat the last map as a whole
