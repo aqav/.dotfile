@@ -354,6 +354,9 @@ nnoremap <silent> K :call <SID>show_documentation()<CR>
 " highlight the symbol and its references when hovering
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
+" rename
+nmap <leader>rn <Plug>(coc-rename)
+
 " coc extensions need to install
 "
 " coc-java(at least Java 11)
