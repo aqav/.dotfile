@@ -2,5 +2,6 @@
     "coc.source.around.firstMatch": false,
     "coc.source.buffer.firstMatch": false,
     "git.addGBlameToVirtualText": true,
-    "yank.highlight.duration": 300
+    "yank.highlight.duration": 300,
+    "java.import.maven.enabled": false
 }
