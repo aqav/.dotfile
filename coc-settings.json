@@ -3,5 +3,16 @@
     "coc.source.buffer.firstMatch": false,
     "git.addGBlameToVirtualText": true,
     "yank.highlight.duration": 300,
-    "java.import.maven.enabled": false
+    "java.import.maven.enabled": false,
+    "java.configuration.runtimes": [
+        {
+            "name": "JavaSE-11",
+            "path": "/usr/lib/jvm/java-11-openjdk"
+        },
+        {
+            "name": "JavaSE-1.8",
+            "path": "/usr/lib/jvm/java-8-openjdk",
+            "default": true
+        }
+    ]
 }
